@@ -52,5 +52,15 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    routes: [
+      "/sensor/1",
+      "/sensor/2",
+      "/sensor/3",
+      "/sensor/4",
+      "/sensor/5",
+      "/sensor/6"
+    ]
   }
 }

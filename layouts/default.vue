@@ -1,55 +1,90 @@
 <template>
   <div>
+    <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="/">Sierra</a>
+        <a v-for="sensor in ['1','2','3','4','5','6']" :key="sensor" v-bind:href="'/sensor/' + sensor" class="py-2 d-none d-md-inline-block">Sensor #{{ sensor }}</a>
+      </div>
+    </nav>
     <nuxt />
+    <footer class="container py-5">
+      <hr>
+      <div class="row">
+        <div class="col-md">
+          <h5>About</h5>
+          <p class="text-muted">Azure Sphere for Citizen Science</p>
+          <p class="text-muted">University of Cambridge Computer Lab Group Project 2020</p>
+          <p class="text-muted">Team Sierra</p>
+          <small class="d-block mb-3 text-muted">&copy; 2020</small>
+        </div>
+        <div class="col-md">
+          <h5>Team Members</h5>
+          <ul class="list-unstyled text-small text-muted">
+            <li>Ethan Jones</li>
+            <li>Sam Kerr</li>
+            <li>Gideon Mills</li>
+            <li>Mina Sekularac</li>
+            <li>Ben Shute</li>
+            <li>Elanor Stark</li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h5>Links</h5>
+          <ul class="list-unstyled text-small text-muted">
+            <li><a class="text-muted" href="https://github.com/GP2020-Sierra/" target="_blank">Github Organisation</a></li>
+            <li><a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a></li>
+            <li><a class="text-muted" href="/LICENSE.txt">MIT License</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+.container {
+  max-width: 960px;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+/*
+ * Custom translucent site header
+ */
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
 }
-
-.button--green:hover {
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
   color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
   text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+/*
+ * Extra utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.flex-equal > * {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
 }
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
 </style>

@@ -1,22 +1,42 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">sierra-web</h1>
-      <h2 class="subtitle">GP2020-Sierra.github.io</h2>
-      <div class="links">
-        <a href="/flash" class="button--green">A button m9</a>
+  <div>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Sierra</h1>
+        <p class="lead font-weight-normal">Azure Sphere for Citizen Science</p>
+        <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank">View Github</a>
       </div>
+    </div>
+
+    <div class="text-center text-dark">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h2 class="display-5">Sensors overview</h2>
+      </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <SensorSmall id="1" color-scheme="dark" />
+      <SensorSmall id="2" color-scheme="light" />
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <SensorSmall id="3" color-scheme="light" />
+      <SensorSmall id="4" color-scheme="dark" />
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <SensorSmall id="5" color-scheme="dark" />
+      <SensorSmall id="6" color-scheme="light" />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue"
+import SensorSmall from "~/components/SensorSmall.vue"
 
 export default {
   components: {
-    Logo
+    SensorSmall
   },
   head () {
     return {
@@ -27,34 +47,5 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
