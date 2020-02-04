@@ -4,7 +4,7 @@
       <a v-bind:href="'/sensor/' + sensor.id"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
       <p class="lead">{{ sensor.location }}</p>
     </div>
-    <div class="box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <div class="sensorSmallData box-shadow mx-auto">
       (sensor data overview)
     </div>
   </b-col>
@@ -59,6 +59,12 @@ export default {
 .sensorSmall {
   background-clip: content-box;
   border-radius: 2rem;
+
+  .sensorSmallData {
+    width: 80%;
+    height: 300px;
+    border-radius: 21px 21px 0 0;
+  }
 }
 
 @include media-breakpoint-up(lg) {
