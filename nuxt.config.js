@@ -55,6 +55,7 @@ export default {
     }
   },
   generate: {
+    fallback: "404.html",
     routes: [
     ].concat(Sensors.ids.map(s => "/sensor/" + s))
   }
