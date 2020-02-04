@@ -35,7 +35,7 @@ export default {
   components: {
     Logo
   },
-  head () {
+  head() {
     return {
       title: 'Sierra'
     }
