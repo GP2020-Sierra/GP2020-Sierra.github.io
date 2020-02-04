@@ -22,11 +22,11 @@ export default {
   },
   head () {
     return {
-      title: "Sensor {{ id }}"
+      title: "Sensor details"
     }
   },
   created () {
-    this.sensor = Sensors.list[this.$route.params.id]
+    this.sensor = Sensors.lookup[this.$route.params.id]
   }
 }
 </script>
