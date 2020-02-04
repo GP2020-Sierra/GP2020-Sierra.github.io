@@ -32,7 +32,7 @@ jobs:
       run: |
         cd master
         git config --local user.email "${{ github.event.pusher.email }}"
-        git config --local user.name "${{ github.event.pusher.username }}"
+        git config --local user.name "${{ github.event.pusher.name }}"
         git add .
         git commit -m "Update master to output generated at ${{ github.sha }}" --allow-empty
     - name: Push changes
