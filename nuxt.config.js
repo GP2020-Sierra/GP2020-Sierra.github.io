@@ -1,3 +1,4 @@
+import Sensors from "./src/sensors.js"
 
 export default {
   mode: "spa",
@@ -55,12 +56,6 @@ export default {
   },
   generate: {
     routes: [
-      "/sensor/1",
-      "/sensor/2",
-      "/sensor/3",
-      "/sensor/4",
-      "/sensor/5",
-      "/sensor/6"
-    ]
+    ].concat(Sensors.ids.map(s => "/sensor/" + s))
   }
 }

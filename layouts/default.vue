@@ -3,7 +3,7 @@
     <nav class="site-header sticky-top py-1">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="/">Sierra</a>
-        <a v-for="sensor in ['1','2','3','4','5','6']" :key="sensor" v-bind:href="'/sensor/' + sensor" class="py-2 d-none d-md-inline-block">Sensor #{{ sensor }}</a>
+        <a v-for="sensor in sensorsList" :key="sensor.id" v-bind:href="'/sensor/' + sensor.id" class="py-2 d-none d-md-inline-block">Sensor #{{ sensor.id }}</a>
       </div>
     </nav>
     <nuxt />
@@ -40,6 +40,16 @@
     </footer>
   </div>
 </template>
+
+<script>
+import Sensors from "~/src/sensors.js"
+
+export default {
+  created () {
+    this.sensorsList = Sensors.list
+  }
+}
+</script>
 
 <style>
 .container {

@@ -14,25 +14,18 @@
       </div>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <SensorSmall id="1" color-scheme="dark" />
-      <SensorSmall id="2" color-scheme="light" />
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <SensorSmall id="3" color-scheme="light" />
-      <SensorSmall id="4" color-scheme="dark" />
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <SensorSmall id="5" color-scheme="dark" />
-      <SensorSmall id="6" color-scheme="light" />
-    </div>
+    <template v-for="chunk in chunkedList">
+      <div :key="chunk" class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <SensorSmall v-bind:sensor="chunk[0].data" v-bind:color-scheme="chunk[0].color" />
+        <SensorSmall v-bind:sensor="chunk[1].data" v-bind:color-scheme="chunk[1].color" />
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import SensorSmall from "~/components/SensorSmall.vue"
+import Sensors from "~/src/sensors.js"
 
 export default {
   components: {
@@ -41,6 +34,16 @@ export default {
   head () {
     return {
       title: "Sierra"
+    }
+  },
+  created () {
+    this.chunkedList = []
+    const colorSchemes = ["dark", "light", "light", "dark"]
+    for (let i = 0; i < Sensors.list.length; i += 2) {
+      this.chunkedList.push([
+        { "data": Sensors.list[i], "color": colorSchemes[i % 4] },
+        { "data": Sensors.list[i + 1], "color": colorSchemes[(i + 1) % 4] }
+      ])
     }
   }
 }
