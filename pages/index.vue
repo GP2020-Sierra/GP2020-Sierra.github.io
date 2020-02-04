@@ -15,7 +15,7 @@
     </div>
 
     <b-row class="position-relative m-lg-3 no-gutters">
-      <SensorSmall v-for="sensor in sensorsList" :key="sensor" v-bind:sensor="sensor" />
+      <SensorSmall v-for="sensor in sensorsList" :key="sensor.id" v-bind:sensor="sensor" />
     </b-row>
   </div>
 </template>
