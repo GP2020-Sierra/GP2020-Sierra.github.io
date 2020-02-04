@@ -9,17 +9,14 @@
     </div>
 
     <div class="text-center text-dark">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <div class="p-lg-3 mx-auto my-5">
         <h2 class="display-5">Sensors overview</h2>
       </div>
     </div>
 
-    <template v-for="chunk in chunkedList">
-      <div :key="chunk" class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <SensorSmall v-bind:sensor="chunk[0].data" v-bind:color-scheme="chunk[0].color" />
-        <SensorSmall v-bind:sensor="chunk[1].data" v-bind:color-scheme="chunk[1].color" />
-      </div>
-    </template>
+    <b-row class="position-relative m-lg-3 no-gutters">
+      <SensorSmall v-for="sensor in sensorsList" :key="sensor" v-bind:sensor="sensor" />
+    </b-row>
   </div>
 </template>
 
@@ -37,14 +34,7 @@ export default {
     }
   },
   created () {
-    this.chunkedList = []
-    const colorSchemes = ["dark", "light", "light", "dark"]
-    for (let i = 0; i < Sensors.list.length; i += 2) {
-      this.chunkedList.push([
-        { "data": Sensors.list[i], "color": colorSchemes[i % 4] },
-        { "data": Sensors.list[i + 1], "color": colorSchemes[(i + 1) % 4] }
-      ])
-    }
+    this.sensorsList = Sensors.list
   }
 }
 </script>

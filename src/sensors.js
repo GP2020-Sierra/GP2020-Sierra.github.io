@@ -22,5 +22,9 @@ const sensorsList = [
 
 export default {
   list: sensorsList,
-  ids: sensorsList.map(x => x.id)
+  ids: sensorsList.map(x => x.id),
+  lookup: sensorsList.reduce(function (obj, item) {
+    obj[item.id] = item
+    return obj
+  }, {})
 }

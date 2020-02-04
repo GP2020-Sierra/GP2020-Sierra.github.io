@@ -1,13 +1,13 @@
 <template>
-  <div v-bind:class="colorScheme == 'dark' ? 'bg-dark text-white' : 'bg-light text-dark'" class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center sensorSmall">
+  <b-col class="col-12 col-lg-6 m-0 px-2 py-lg-2 py-0 text-center sensorSmall">
     <div class="my-3 py-3">
-      <a v-bind:href="'/sensor/' + id" v-bind:class="colorScheme == 'dark' ? 'text-white' : 'text-dark'"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
+      <a v-bind:href="'/sensor/' + sensor.id"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
       <p class="lead">{{ sensor.location }}</p>
     </div>
-    <div v-bind:class="colorScheme != 'dark' ? 'bg-dark text-white' : 'bg-light text-dark'" class="box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <div class="box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
       (sensor data overview)
     </div>
-  </div>
+  </b-col>
 </template>
 
 <script>
@@ -16,17 +16,63 @@ export default {
     sensor: {
       type: Object,
       required: true
-    },
-    colorScheme: {
-      validator (value) {
-        return ["dark", "light"].includes(value)
-      },
-      required: true
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import 'bootstrap/scss/_functions';
+@import 'bootstrap/scss/_variables';
+@import 'bootstrap/scss/mixins/_breakpoints.scss';
 
+@mixin sensorDark {
+  color: white;
+  background-color: $dark;
+
+  a, h2 {
+    color: white;
+    text-decoration-color: white;
+  }
+
+  .box-shadow {
+    color: black;
+    background-color: $light;
+  }
+}
+
+@mixin sensorLight {
+  color: black;
+  background-color: $light;
+
+  a, h2 {
+    color: $dark;
+    text-decoration-color: $dark;
+  }
+
+  .box-shadow {
+    color: white;
+    background-color: $dark;
+  }
+}
+
+.sensorSmall {
+  background-clip: content-box;
+  border-radius: 2rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .sensorSmall:nth-of-type(4n+2), .sensorSmall:nth-of-type(4n+3) {
+    @include sensorDark;
+  }
+  .sensorSmall:nth-of-type(4n+1), .sensorSmall:nth-of-type(4n+0) {
+    @include sensorLight;
+  }
+}
+@include media-breakpoint-down(lg) {
+  .sensorSmall {
+    @include sensorLight;
+    border-radius: 0rem;
+  }
+}
 </style>
