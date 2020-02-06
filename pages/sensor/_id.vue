@@ -9,14 +9,19 @@
     <b-container>
       <p>Hello World</p>
       <p>My location: <i>{{ sensor.location }}</i></p>
+      <TestChart v-bind:sensorData="sensor.loadData()" />
     </b-container>
   </div>
 </template>
 
 <script>
 import Sensors from "~/src/sensors.js"
+import TestChart from "~/components/TestChart"
 
 export default {
+  components: {
+    TestChart
+  },
   validate ({ params }) {
     return Sensors.ids.includes(params.id)
   },
