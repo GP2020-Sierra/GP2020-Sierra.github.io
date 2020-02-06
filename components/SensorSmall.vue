@@ -1,12 +1,13 @@
 <template>
   <b-col class="col-12 col-lg-6 m-0 px-2 py-lg-2 py-0 text-center sensorSmall">
     <div class="my-3 py-3">
-      <a v-bind:href="'/sensor/' + sensor.id"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
+      <h1>ALL YOUR SQUARES BELONG TO ME</h1>
+      <a v-bind:href="'/sensor/' + sensor.id">
+        <h2 class="display-6">Sensor #{{ sensor.id }}</h2>
+      </a>
       <p class="lead">{{ sensor.location }}</p>
     </div>
-    <div class="sensorSmallData box-shadow mx-auto">
-      (sensor data overview)
-    </div>
+    <div class="sensorSmallData box-shadow mx-auto">(sensor data overview)</div>
   </b-col>
 </template>
 
@@ -22,15 +23,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'bootstrap/scss/_functions';
-@import 'bootstrap/scss/_variables';
-@import 'bootstrap/scss/mixins/_breakpoints.scss';
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints.scss";
 
 @mixin sensorDark {
   color: white;
   background-color: $dark;
 
-  a, h2 {
+  a,
+  h2 {
     color: white;
     text-decoration-color: white;
   }
@@ -45,7 +47,8 @@ export default {
   color: black;
   background-color: $light;
 
-  a, h2 {
+  a,
+  h2 {
     color: $dark;
     text-decoration-color: $dark;
   }
@@ -68,10 +71,12 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .sensorSmall:nth-of-type(4n+2), .sensorSmall:nth-of-type(4n+3) {
+  .sensorSmall:nth-of-type(4n + 2),
+  .sensorSmall:nth-of-type(4n + 3) {
     @include sensorDark;
   }
-  .sensorSmall:nth-of-type(4n+1), .sensorSmall:nth-of-type(4n+0) {
+  .sensorSmall:nth-of-type(4n + 1),
+  .sensorSmall:nth-of-type(4n + 0) {
     @include sensorLight;
   }
 }
