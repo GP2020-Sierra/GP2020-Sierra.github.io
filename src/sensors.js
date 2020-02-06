@@ -1,3 +1,5 @@
+import data from "./mock.json"
+
 const sensorsList = [
   {
     id: "1",
@@ -19,6 +21,10 @@ const sensorsList = [
     location: "Location F"
   }
 ]
+
+sensorsList.forEach(function (x) {
+  x.loadData = () => data
+})
 
 export default {
   list: sensorsList,
