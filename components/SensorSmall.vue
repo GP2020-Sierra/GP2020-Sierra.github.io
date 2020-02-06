@@ -1,5 +1,5 @@
 <template>
-  <b-col class="col-12 col-lg-6 m-0 px-2 py-lg-2 py-0 text-center sensorSmall">
+  <b-col class="col-12 col-lg-6 m-0 p-2 text-center sensorSmall">
     <div class="my-3 py-3">
       <a v-bind:href="'/sensor/' + sensor.id"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
       <p class="lead">{{ sensor.location }}</p>
@@ -76,9 +76,11 @@ export default {
   }
 }
 @include media-breakpoint-down(lg) {
-  .sensorSmall {
+  .sensorSmall:nth-of-type(even) {
+    @include sensorDark;
+  }
+  .sensorSmall:nth-of-type(odd) {
     @include sensorLight;
-    border-radius: 0rem;
   }
 }
 </style>
