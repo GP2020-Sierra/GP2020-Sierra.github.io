@@ -29,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "~/plugins/vue-fa"
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,7 +43,9 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    "bootstrap-vue/nuxt"
+    "bootstrap-vue/nuxt",
+    // Icons: https://fontawesome.com/
+    "nuxt-fontawesome"
   ],
   /*
   ** Build configuration
@@ -51,7 +54,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   },
   generate: {
