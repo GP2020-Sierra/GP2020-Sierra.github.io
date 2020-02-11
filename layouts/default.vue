@@ -6,7 +6,6 @@
         id="normal-navbar"
         class="container d-flex flex-column flex-md-row justify-content-between"
       >
-        <a class="py-2 d-none d-md-inline-block" href="/">Sierra</a>
         <a
           v-for="sensor in sensorsList"
           :key="sensor.id"
@@ -20,8 +19,8 @@
         class="navbar-toggler btn btn-dark"
         type="button"
         data-toggle="collapse"
-        data-target="navbarSupportedContent1"
-        aria-controls="navbarSupportedContent1"
+        data-target="#navbarSupportedContent1"
+        aria-controls="#navbarSupportedContent1"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -29,6 +28,19 @@
           <font-awesome-icon icon="bars" />
         </span>
       </button>
+
+      <div id="navbarSupportedContent1" class="collapse navbar-collapse">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a class="py-2" href="/">Sierra</a>
+          </li>
+          <li :key="sensor.id" v-for=" sensor in sensorsList" class="text-light">
+            <a v-bind:href="'/sensor/' + sensor.id">Sensor #{{ sensor.id }}</a>
+          </li>
+        </ul>
+        <!-- Links -->
+      </div>
     </nav>
     <nuxt />
     <footer class="container py-5">
