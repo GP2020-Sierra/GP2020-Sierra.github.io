@@ -1,14 +1,58 @@
 <template>
   <div>
-    <nav class="site-header sticky-top py-1">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <nav class="site-header navbar navbar-expand-sm sticky-top">
+      <!-- Full nav bar -->
+      <div
+        id="normal-navbar"
+        class="container d-flex flex-column flex-md-row justify-content-between"
+      >
         <a class="py-2 d-none d-md-inline-block" href="/">Sierra</a>
-        <a v-for="sensor in sensorsList" :key="sensor.id" v-bind:href="'/sensor/' + sensor.id" class="py-2 d-none d-md-inline-block">Sensor #{{ sensor.id }}</a>
+        <a
+          v-for="sensor in sensorsList"
+          :key="sensor.id"
+          v-bind:href="'/sensor/' + sensor.id"
+          class="py-2 d-none d-md-inline-block"
+        >Sensor #{{ sensor.id }}</a>
+      </div>
+
+      <!-- Collapsed nav bar -->
+      <button
+        class="navbar-toggler btn btn-dark"
+        type="button"
+        data-toggle="collapse"
+        data-target="#normal-navbar"
+        aria-controls="navbarSupportedContent1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span>
+          <font-awesome-icon icon="bars" />
+        </span>
+      </button>
+
+      <!-- Dropdown content -->
+      <div id="navbarSupportedContent1" class="collapse navbar-collapse">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <!-- Links -->
       </div>
     </nav>
     <nuxt />
     <footer class="container py-5">
-      <hr>
+      <hr />
       <div class="row">
         <div class="col-md">
           <h5>About</h5>
@@ -31,9 +75,23 @@
         <div class="col-md">
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
-            <li><a class="text-muted" href="https://github.com/GP2020-Sierra/" target="_blank">Github Organisation</a></li>
-            <li><a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a></li>
-            <li><a class="text-muted" href="/LICENSE.txt">MIT License</a></li>
+            <li>
+              <a
+                class="text-muted"
+                href="https://github.com/GP2020-Sierra/"
+                target="_blank"
+              >Github Organisation</a>
+            </li>
+            <li>
+              <a
+                class="text-muted"
+                href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source"
+                target="_blank"
+              >Website source</a>
+            </li>
+            <li>
+              <a class="text-muted" href="/LICENSE.txt">MIT License</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -61,13 +119,13 @@ export default {
  */
 
 .site-header {
-  background-color: rgba(0, 0, 0, .85);
+  background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 }
 .site-header a {
   color: #999;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 .site-header a:hover {
   color: #fff;
@@ -78,10 +136,16 @@ export default {
  * Extra utilities
  */
 
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
 
 .flex-equal > * {
   -ms-flex: 1;
@@ -96,5 +160,7 @@ export default {
   }
 }
 
-.overflow-hidden { overflow: hidden; }
+.overflow-hidden {
+  overflow: hidden;
+}
 </style>
