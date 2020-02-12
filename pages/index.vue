@@ -33,8 +33,8 @@ export default {
       title: "Sierra"
     }
   },
-  async asyncData ({ params }) {
-    const locations = await Locations.getLocations()
+  async asyncData (context) {
+    const { locations } = await Locations.page(context)
     return { locations }
   }
 }

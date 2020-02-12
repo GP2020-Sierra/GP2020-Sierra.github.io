@@ -19,10 +19,21 @@ export default {
 
     return locations
   },
-  async getLocation (id) {
+  async page (context, locationID) {
     const locations = await this.getLocations()
-    const location = locations[id]
-    await location.loadData()
+    context.store.commit("setLocations", locations)
+
+    let location = null
+    if (locationID) {
+      if (locationID in locations) {
+        location = locations[locationID]
+        await location.loadData()
+      } else {
+        context.error("Invalid location")
+      }
+    }
+    context.store.commit("setLocation", location)
+
     return { locations, location }
   }
 }

@@ -9,11 +9,10 @@
         <!-- Left aligned nav items -->
         <b-navbar-nav>
           <b-nav-item href="/">Overview</b-nav-item>
-        </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item v-for="location in locations" :key="location.id" v-bind:href="'/location/' + location.id">Location #{{ location.id }}</b-nav-item>
+          <b-nav-item-dropdown text="Locations">
+            <b-dropdown-item v-for="location in locations" :key="location.id" v-bind:href="'/location/' + location.id">{{ location.name }}</b-dropdown-item>
+          </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -56,7 +55,11 @@
 
 <script>
 export default {
-
+  computed: {
+    locations () {
+      return this.$store.state.locations
+    }
+  }
 }
 </script>
 
@@ -73,14 +76,6 @@ export default {
   background-color: rgba(0, 0, 0, .85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-}
-.site-header a {
-  color: #999;
-  transition: ease-in-out color .15s;
-}
-.site-header a:hover {
-  color: #fff;
-  text-decoration: none;
 }
 
 /*

@@ -26,8 +26,8 @@ export default {
       title: "Location details"
     }
   },
-  async asyncData ({ params }) {
-    const { locations, location } = await Locations.getLocation(params.id)
+  async asyncData (context) {
+    const { locations, location } = await Locations.page(context, context.params.id)
     return { locations, location }
   }
 }
