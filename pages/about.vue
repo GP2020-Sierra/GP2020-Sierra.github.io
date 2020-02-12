@@ -43,6 +43,19 @@
 </template>
 
 <script>
+import Locations from "~/src/locations.js"
+
+export default {
+  head () {
+    return {
+      title: "About"
+    }
+  },
+  async asyncData (context) {
+    const { locations } = await Locations.page(context)
+    return { locations }
+  }
+}
 </script>
 
 <style>

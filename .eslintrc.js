@@ -14,6 +14,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     "vue/singleline-html-element-content-newline": "off",
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "import/order": "off"
   }
 }

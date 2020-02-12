@@ -1,4 +1,5 @@
-import Sensors from "./src/sensors.js"
+import fs from "fs-extra"
+import Locations from "./src/locations.js"
 
 export default {
   mode: "spa",
@@ -36,7 +37,9 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    "@nuxtjs/eslint-module"
+    "@nuxtjs/eslint-module",
+    // https://axios.nuxtjs.org/
+    "@nuxtjs/axios"
   ],
   /*
   ** Nuxt.js modules
@@ -57,7 +60,21 @@ export default {
   },
   generate: {
     fallback: "404.html",
-    routes: [
-    ].concat(Sensors.ids.map(s => "/sensor/" + s))
+    async routes () {
+      const locations = await Locations.getLocations()
+      return Object.values(locations).map(x => "/location/" + x.id)
+    }
+  },
+  hooks: {
+    generate: {
+      async before (nuxt, generateOptions) {
+        await fs.remove("src/static-locations.json")
+        const data = await Locations._locationsEndpoint()
+        await fs.writeJson("src/static-locations.json", data)
+      },
+      async done (nuxt, errors) {
+        await fs.remove("src/static-locations.json")
+      }
+    }
   }
 }

@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Static data
+src/static-locations.json

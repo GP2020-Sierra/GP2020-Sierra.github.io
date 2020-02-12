@@ -1,11 +1,11 @@
 <template>
-  <b-col class="col-12 col-lg-6 m-0 p-2 text-center sensorSmall">
+  <b-col class="col-12 col-lg-6 m-0 p-2 text-center locationSmall">
     <div class="my-3 py-3">
-      <a v-bind:href="'/sensor/' + sensor.id"><h2 class="display-6">Sensor #{{ sensor.id }}</h2></a>
-      <p class="lead">{{ sensor.location }}</p>
+      <a v-bind:href="'/location/' + location.id"><h2 class="display-6">{{ location.name }}</h2></a>
+      <p class="lead">Location #{{ location.id }}</p>
     </div>
-    <div class="sensorSmallData box-shadow mx-auto">
-      (sensor data overview)
+    <div class="locationSmallData box-shadow mx-auto">
+      (location data overview)
     </div>
   </b-col>
 </template>
@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    sensor: {
+    location: {
       type: Object,
       required: true
     }
@@ -26,7 +26,7 @@ export default {
 @import 'bootstrap/scss/_variables';
 @import 'bootstrap/scss/mixins/_breakpoints.scss';
 
-@mixin sensorDark {
+@mixin locationDark {
   color: white;
   background-color: $dark;
 
@@ -41,7 +41,7 @@ export default {
   }
 }
 
-@mixin sensorLight {
+@mixin locationLight {
   color: black;
   background-color: $light;
 
@@ -56,11 +56,11 @@ export default {
   }
 }
 
-.sensorSmall {
+.locationSmall {
   background-clip: content-box;
   border-radius: 2rem;
 
-  .sensorSmallData {
+  .locationSmallData {
     width: 80%;
     height: 300px;
     border-radius: 21px 21px 0 0;
@@ -68,19 +68,19 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .sensorSmall:nth-of-type(4n+2), .sensorSmall:nth-of-type(4n+3) {
-    @include sensorDark;
+  .locationSmall:nth-of-type(4n+2), .locationSmall:nth-of-type(4n+3) {
+    @include locationDark;
   }
-  .sensorSmall:nth-of-type(4n+1), .sensorSmall:nth-of-type(4n+0) {
-    @include sensorLight;
+  .locationSmall:nth-of-type(4n+1), .locationSmall:nth-of-type(4n+0) {
+    @include locationLight;
   }
 }
 @include media-breakpoint-down(lg) {
-  .sensorSmall:nth-of-type(even) {
-    @include sensorDark;
+  .locationSmall:nth-of-type(even) {
+    @include locationDark;
   }
-  .sensorSmall:nth-of-type(odd) {
-    @include sensorLight;
+  .locationSmall:nth-of-type(odd) {
+    @include locationLight;
   }
 }
 </style>

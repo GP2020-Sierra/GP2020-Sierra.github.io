@@ -8,24 +8,22 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Left aligned nav items -->
         <b-navbar-nav>
+          <b-nav-item href="/">Overview</b-nav-item>
           <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item-dropdown text="Locations">
+            <b-dropdown-item v-for="location in locations" :key="location.id" v-bind:href="'/location/' + location.id">{{ location.name }}</b-dropdown-item>
+          </b-nav-item-dropdown>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item
-            v-for="sensor in sensorsList"
-            :key="sensor.id"
-            v-bind:href="'/sensor/' + sensor.id"
-          >Sensor #{{ sensor.id }}</b-nav-item>
-        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto" />
       </b-collapse>
     </b-navbar>
 
     <nuxt />
 
     <footer class="container py-5">
-      <hr />
+      <hr>
       <div class="row">
         <div class="col-md">
           <h5>About</h5>
@@ -49,18 +47,10 @@
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/"
-                target="_blank"
-              >Github Organisation</a>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/" target="_blank">Github Organisation</a>
             </li>
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source"
-                target="_blank"
-              >Website source</a>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
             </li>
             <li>
               <a class="text-muted" href="/LICENSE.txt">MIT License</a>
@@ -73,11 +63,11 @@
 </template>
 
 <script>
-import Sensors from "~/src/sensors.js"
-
 export default {
-  created () {
-    this.sensorsList = Sensors.list
+  computed: {
+    locations () {
+      return this.$store.state.locations
+    }
   }
 }
 </script>
@@ -95,14 +85,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-}
-.site-header a {
-  color: #999;
-  transition: ease-in-out color 0.15s;
-}
-.site-header a:hover {
-  color: #fff;
-  text-decoration: none;
 }
 
 /*
