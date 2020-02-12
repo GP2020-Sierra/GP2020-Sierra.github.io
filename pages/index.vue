@@ -15,26 +15,27 @@
     </div>
 
     <b-row class="position-relative m-lg-3 no-gutters">
-      <SensorSmall v-for="sensor in sensorsList" :key="sensor.id" v-bind:sensor="sensor" />
+      <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
     </b-row>
   </div>
 </template>
 
 <script>
-import SensorSmall from "~/components/SensorSmall.vue"
-import Sensors from "~/src/sensors.js"
+import LocationSmall from "~/components/LocationSmall.vue"
+import Locations from "~/src/locations.js"
 
 export default {
   components: {
-    SensorSmall
+    LocationSmall
   },
   head () {
     return {
       title: "Sierra"
     }
   },
-  created () {
-    this.sensorsList = Sensors.list
+  async asyncData ({ params }) {
+    const locations = await Locations.getLocations()
+    return { locations }
   }
 }
 </script>

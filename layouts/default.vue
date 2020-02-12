@@ -13,7 +13,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item v-for="sensor in sensorsList" :key="sensor.id" v-bind:href="'/sensor/' + sensor.id">Sensor #{{ sensor.id }}</b-nav-item>
+          <b-nav-item v-for="location in locations" :key="location.id" v-bind:href="'/location/' + location.id">Location #{{ location.id }}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -55,12 +55,8 @@
 </template>
 
 <script>
-import Sensors from "~/src/sensors.js"
-
 export default {
-  created () {
-    this.sensorsList = Sensors.list
-  }
+
 }
 </script>
 

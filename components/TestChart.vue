@@ -5,19 +5,19 @@ import moment from "moment"
 export default {
   extends: Line,
   props: {
-    sensorData: {
+    locationData: {
       type: Array,
       required: true
     }
   },
   mounted () {
     const data = {
-      labels: this.sensorData.map(x => moment.unix(x.Timestamp)),
+      labels: this.locationData.map(x => moment.unix(x.Timestamp)),
       datasets: [{
-        label: "My First dataset",
+        label: "Temperature",
         borderColor: "rgb(255, 0, 0)",
         fill: false,
-        data: this.sensorData.map(x => x.Temperature)
+        data: this.locationData.map(x => x.Temperature)
       }]
     }
 
