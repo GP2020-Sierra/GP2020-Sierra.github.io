@@ -12,9 +12,14 @@
         Many studies have shown that the level of carbon dioxide in the room is directly related to a students alertness and ability to concentrate.
         Even though CO2 is a harmless gas; it can contribute directly to increased tiredness and a loss of concentration.
       </p>
-      <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>
-      <p>https://www.aivc.org/sites/default/files/155_0.pdf</p>
+      <p>
+        According to
+        <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this paper</a> on primary, middle and/or secondary school students in 16 studies from 1996 to 2015, reducing CO2 concentration from 2,000 ppm (parts per million) to 1,000 ppm
+        would mean on average students perform psychological tests would 12% faster and make 3% fewer mistakes.
+      </p>
+
       <p>TODO:</p>
+      <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>
     </b-container>
   </div>
 </template>
