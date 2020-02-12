@@ -2,15 +2,27 @@ import axios from "axios"
 const api = "https://gp2020sierra.blob.core.windows.net/data/"
 
 export default {
-  async getLocations () {
+  async _locationsEndpoint () {
+    // if statically built use location list shipped with
+    try {
+      return require("~/src/static-locations.json")
+    } catch (e) {}
+
     const { data } = await axios.get(api + "locations.json")
+    return data
+  },
+  async _locationEndpoint (id) {
+    const { data } = await axios.get(api + "location/" + id + ".json")
+    return data
+  },
+  async getLocations (context) {
+    const locationList = await this._locationsEndpoint(context)
     const locations = {}
 
-    data.forEach((location) => {
+    locationList.forEach((location) => {
       location.loadData = async () => {
         if (location.data === undefined) {
-          const { data } = await axios.get(api + "location/" + location.id + ".json")
-          location.data = data
+          location.data = await this._locationEndpoint(location.id)
         }
         return location.data
       }
