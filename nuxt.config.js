@@ -60,8 +60,8 @@ export default {
   generate: {
     fallback: "404.html",
     async routes () {
-      const list = await Locations.loadLocations()
-      return list.map(x => "/location/" + x.id)
+      const locations = await Locations.getLocations()
+      return Object.values(locations).map(x => "/location/" + x.id)
     }
   }
 }
