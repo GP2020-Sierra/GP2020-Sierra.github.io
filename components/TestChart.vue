@@ -20,7 +20,7 @@ export default {
         data: this.sensorData.map(x => x.Temperature)
       }]
     }
-    console.log(data)
+
     const timeFormat = "MM/DD/YYYY HH:mm"
     const options = {
       title: {
