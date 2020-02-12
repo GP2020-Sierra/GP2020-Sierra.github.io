@@ -8,7 +8,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Left aligned nav items -->
         <b-navbar-nav>
-          <b-nav-item href="/about/">About</b-nav-item>
+          <b-nav-item href="/about">About</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
