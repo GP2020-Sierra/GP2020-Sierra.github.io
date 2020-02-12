@@ -1,12 +1,25 @@
 <template>
   <div>
-    <nav class="site-header sticky-top py-1">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="/">Sierra</a>
-        <a v-for="sensor in sensorsList" :key="sensor.id" v-bind:href="'/sensor/' + sensor.id" class="py-2 d-none d-md-inline-block">Sensor #{{ sensor.id }}</a>
-      </div>
-    </nav>
+    <b-navbar toggleable="sm" type="dark" class="site-header sticky-top">
+      <b-navbar-brand href="#">Sierra</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse" />
+
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Left aligned nav items -->
+        <b-navbar-nav>
+          <b-nav-item href="/">Overview</b-nav-item>
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item v-for="sensor in sensorsList" :key="sensor.id" v-bind:href="'/sensor/' + sensor.id">Sensor #{{ sensor.id }}</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+
     <nuxt />
+
     <footer class="container py-5">
       <hr>
       <div class="row">
