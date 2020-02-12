@@ -23,7 +23,7 @@
       <p>
         According to
         <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this paper</a> on primary, middle and/or secondary school students in 16 studies from 1996 to 2015, reducing CO2 concentration from 2,000 ppm (parts per million) to 1,000 ppm
-        would mean on average students perform psychological tests would 12% faster and make 3% fewer mistakes.
+        would mean on average students perform psychological tests would 12% faster and make 3% fewer mistakes. More generally, the following trend was seen:
       </p>
       <b-container fluid class="p-4">
         <b-row>
