@@ -16,16 +16,14 @@
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-
-        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto" />
       </b-collapse>
     </b-navbar>
 
     <nuxt />
 
     <footer class="container py-5">
-      <hr />
+      <hr>
       <div class="row">
         <div class="col-md">
           <h5>About</h5>
@@ -49,18 +47,10 @@
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/"
-                target="_blank"
-              >Github Organisation</a>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/" target="_blank">Github Organisation</a>
             </li>
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source"
-                target="_blank"
-              >Website source</a>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
             </li>
             <li>
               <a class="text-muted" href="/LICENSE.txt">MIT License</a>
