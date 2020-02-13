@@ -3,11 +3,6 @@ const api = "https://gp2020sierra.blob.core.windows.net/data/"
 
 export default {
   async _locationsEndpoint () {
-    // if statically built use location list shipped with
-    try {
-      return require("~/src/static-locations.json")
-    } catch (e) {}
-
     const { data } = await axios.get(api + "locations.json")
     return data
   },

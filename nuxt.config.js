@@ -59,22 +59,6 @@ export default {
     }
   },
   generate: {
-    fallback: "404.html",
-    async routes () {
-      const locations = await Locations.getLocations()
-      return Object.values(locations).map(x => "/location/" + x.id)
-    }
-  },
-  hooks: {
-    generate: {
-      async before (nuxt, generateOptions) {
-        await fs.remove("src/static-locations.json")
-        const data = await Locations._locationsEndpoint()
-        await fs.writeJson("src/static-locations.json", data)
-      },
-      async done (nuxt, errors) {
-        await fs.remove("src/static-locations.json")
-      }
-    }
+    fallback: "404.html"
   }
 }
