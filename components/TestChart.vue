@@ -20,6 +20,8 @@ export default {
         label: "Temperature",
         borderColor: "rgb(255, 0, 0)",
         fill: false,
+        lineTension: 0,
+        // borderDash: [5, 29],
         data: this.locationData.map(x => x.Temperature)
       }]
     }

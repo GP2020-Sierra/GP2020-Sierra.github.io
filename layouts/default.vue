@@ -11,7 +11,11 @@
           <b-nav-item href="/">Overview</b-nav-item>
           <b-nav-item href="/about">About</b-nav-item>
           <b-nav-item-dropdown text="Locations">
-            <b-dropdown-item v-for="location in locations" :key="location.id" v-bind:href="'/location/' + location.id">{{ location.name }}</b-dropdown-item>
+            <b-dropdown-item
+              v-for="location in locations"
+              :key="location.id"
+              v-bind:href="'/location/' + location.id"
+            >{{ location.name }}</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 
@@ -23,7 +27,7 @@
     <nuxt />
 
     <footer class="container py-5">
-      <hr>
+      <hr />
       <div class="row">
         <div class="col-md">
           <h5>About</h5>
@@ -47,10 +51,18 @@
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
             <li>
-              <a class="text-muted" href="https://github.com/GP2020-Sierra/" target="_blank">Github Organisation</a>
+              <a
+                class="text-muted"
+                href="https://github.com/GP2020-Sierra/"
+                target="_blank"
+              >Github Organisation</a>
             </li>
             <li>
-              <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
+              <a
+                class="text-muted"
+                href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source"
+                target="_blank"
+              >Website source</a>
             </li>
             <li>
               <a class="text-muted" href="/LICENSE.txt">MIT License</a>
