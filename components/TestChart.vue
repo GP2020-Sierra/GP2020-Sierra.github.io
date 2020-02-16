@@ -1,9 +1,12 @@
 <script>
-import { Line } from "vue-chartjs"
+import { Line, mixins } from "vue-chartjs"
 import moment from "moment"
+
+const { reactiveProp } = mixins
 
 export default {
   extends: Line,
+  mixins: [reactiveProp],
   props: {
     locationData: {
       type: Array,
