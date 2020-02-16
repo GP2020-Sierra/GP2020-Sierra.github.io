@@ -7,9 +7,10 @@
     </div>
 
     <b-container>
-      <p>My ID #: {{ location.id }}</p><
+      <p>My ID #: {{ location.id }}</p>
+      <!-- <v-date-picker v-model="date" />
       <input v-model="message" placeholder="edit me" />
-      <p>Message is: {{ message }}</p>
+      <p>Message is: {{ message }}</p>-->
       <TestChart v-bind:locationData="locationData" />
     </b-container>
   </div>
@@ -25,11 +26,14 @@ export default {
   },
   data () {
     return {
-      locationData: this.location.data,
-      date: null
+      date: new Date(),
+      message: "HI!"
     }
   },
   computed: {
+    locationData () {
+      return this.location.data
+    }
   },
   head () {
     return {
@@ -38,9 +42,6 @@ export default {
   },
   async asyncData (context) {
     const { locations, location } = await Locations.page(context, context.params.id)
-    console.log("HELLO!!!!")
-    console.log(locations)
-    console.log(location)
     return { locations, location }
   }
 }
