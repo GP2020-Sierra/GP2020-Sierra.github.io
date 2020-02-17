@@ -8,10 +8,21 @@
 
     <b-container>
       <p>My ID #: {{ location.id }}</p>
-      <button v-on:click="forceRerender()">Refresh</button>
-      <select v-model="yAxis">
-        <option v-for="option in options" v-bind:key="option" :value="option" v>{{ option }}</option>
-      </select>
+      <b-row>
+        <b-col>
+          <b-button v-on:click="forceRerender()">Hacky refresh</b-button>
+        </b-col>
+        <p>Y axis:</p>
+        <b-col>
+          <b-form-select v-model="yAxis">
+            <b-form-select-option
+              v-for="option in options"
+              v-bind:key="option"
+              :value="option"
+            >{{ option }}</b-form-select-option>
+          </b-form-select>
+        </b-col>
+      </b-row>
       <TestChart v-bind:locationData="locationData" v-bind:yAxis="yAxis" :key="chartKey" />
     </b-container>
   </div>
