@@ -54,12 +54,12 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
     }
   },
   generate: {
     fallback: "404.html",
-    async routes() {
+    async routes () {
       const locations = await Locations.getLocations()
       return Object.values(locations).map(x => "/location/" + x.id)
     }
