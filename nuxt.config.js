@@ -1,4 +1,3 @@
-import fs from "fs-extra"
 import Locations from "./src/locations.js"
 
 export default {
