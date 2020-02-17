@@ -8,10 +8,11 @@
 
     <b-container>
       <p>My ID #: {{ location.id }}</p>
-      <!-- <v-date-picker v-model="date" />
-      <input v-model="message" placeholder="edit me" />
-      <p>Message is: {{ message }}</p>-->
-      <TestChart v-bind:locationData="locationData" />
+      <button v-on:click="forceRerender()">Refresh</button>
+      <select v-model="yAxis">
+        <option v-for="option in options" v-bind:key="option" :value="option" v>{{ option }}</option>
+      </select>
+      <TestChart v-bind:locationData="locationData" v-bind:yAxis="yAxis" :key="chartKey" />
     </b-container>
   </div>
 </template>
@@ -27,22 +28,32 @@ export default {
   data () {
     return {
       date: new Date(),
-      message: "HI!"
+      yAxis: null,
+      chartKey: 0
     }
   },
   computed: {
     locationData () {
       return this.location.data
+    },
+    options () {
+      const possibleYs = ["Temperature", "CO2", "Pressure", "Humidity"]
+      return possibleYs
+    }
+  },
+  async asyncData (context) {
+    const { locations, location } = await Locations.page(context, context.params.id)
+    return { locations, location }
+  },
+  methods: {
+    forceRerender () {
+      this.chartKey += 1
     }
   },
   head () {
     return {
       title: "Location details"
     }
-  },
-  async asyncData (context) {
-    const { locations, location } = await Locations.page(context, context.params.id)
-    return { locations, location }
   }
 }
 </script>
