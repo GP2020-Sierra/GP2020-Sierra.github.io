@@ -9,17 +9,19 @@ export default {
       type: Array,
       required: true
     },
-    yAxis: {
-      type: String,
-      default: "Temperature"
+    filterObject: {
+      type: Object
+      // default: null
     }
   },
   computed: {
     data () {
+      const thing = { yAxis: "Temperature" }
+      const labelVal = this.filterObject.yAxis == null ? thing.yAxis : this.filterObject.yAxis
       return {
         labels: this.locationData.map(x => moment.unix(x.Timestamp)),
         datasets: [{
-          label: this.yAxis == null ? "Temperature" : this.yAxis, // TODO why is this needed?
+          label: labelVal,
           borderColor: "rgb(255, 0, 0)",
           fill: false,
           lineTension: 0,
@@ -58,7 +60,7 @@ export default {
     }
   },
   watch: {
-    yAxis (newVal, oldVal) {
+    filterObject (newVal, oldVal) {
       this.renderChart(this.data, this.options)
     }
   },
@@ -69,7 +71,7 @@ export default {
   },
   methods: {
     getY (x) {
-      switch (this.yAxis) {
+      switch (this.filterObject.yAxis) {
         case "Humidity":
           return x.Humidity
         case "CO2":
