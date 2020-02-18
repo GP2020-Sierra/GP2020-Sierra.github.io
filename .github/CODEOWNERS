@@ -1,0 +1,11 @@
+* @GP2020-Sierra/website
+
+.github/ @ictrobot
+.editorconfig @ictrobot
+.eslintrc.js @ictrobot
+.gitignore @ictrobot
+README.md @ictrobot
+jsconfig.json @ictrobot
+nuxt.config.js @ictrobot
+package-lock.json @ictrobot
+package.json @ictrobot

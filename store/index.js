@@ -1,0 +1,13 @@
+export const state = () => ({
+  locations: null,
+  location: null
+})
+
+export const mutations = {
+  setLocations (state, locations) {
+    state.locations = locations
+  },
+  setLocation (state, location) {
+    state.location = location
+  }
+}
