@@ -25,7 +25,7 @@
           </b-form-select>
         </b-col>
       </b-row>
-      <TestChart v-bind:locationData="locationData" v-bind:yAxis="yAxis" :key="chartKey" />
+      <TestChart v-bind:locationData="locationData" v-bind:filterObject="filterObject" :key="chartKey" />
     </b-container>
   </div>
 </template>
@@ -52,6 +52,9 @@ export default {
     options () {
       const possibleYs = ["Temperature", "CO2", "Pressure", "Humidity"]
       return possibleYs
+    },
+    filterObject () {
+      return { yAxis: this.yAxis }
     }
   },
   async asyncData (context) {
