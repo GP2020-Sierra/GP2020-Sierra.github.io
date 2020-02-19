@@ -1,20 +1,57 @@
+<template>
+  <div class="border-2 rounded-lg py-4 px-1 shadow-lg mb-8">
+    <h1 class="text-xl font-semibold">Basic Chart</h1>
+    <apexchart :options="chartOptions" :series="formattedData" height="200" type="line" />
+  </div>
+</template>
+
 <script>
-import { Line } from "vue-chartjs"
-import moment from "moment"
+// import moment from "moment"
 
 export default {
-  extends: Line,
-  props: {
-    locationData: {
-      type: Array,
-      required: true
-    },
-    filterObject: {
-      type: Object,
-      default: null
-    }
+  name: "LineExample",
+  data () {
+    return {}
   },
   computed: {
+    chartOptions () {
+      return {
+        title: {
+          text: "AAPL",
+          align: "left"
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [
+            "2019-01-01",
+            "2019-02-01",
+            "2019-03-01",
+            "2019-04-01",
+            "2019-05-01",
+            "2019-06-01",
+            "2019-07-01"
+          ]
+        },
+        yaxis: {
+          tooltip: {
+            enabled: false
+          }
+        },
+        chart: {
+          animations: {
+            enabled: this.animations
+          },
+          zoom: {
+            autoScaleYaxis: false // https://github.com/apexcharts/apexcharts.js/issues/566
+          }
+        }
+      }
+    },
+    formattedData () {
+      return [{ name: "WebsiteHits",
+        data: [15, 20, 21, 25, 60, 120, 93] }]
+    }
+    /*
     data () {
       const thing = { yAxis: "Temperature" }
       const labelVal = this.filterObject.yAxis == null ? thing.yAxis : this.filterObject.yAxis
@@ -32,6 +69,7 @@ export default {
         }]
       }
     },
+
     options () {
       const timeFormat = "MM/DD/YYYY HH:mm"
       return {
@@ -59,17 +97,15 @@ export default {
           }]
         }
       }
-    }
+    } */
   },
   watch: {
     filterObject (newVal, oldVal) {
-      this.renderChart(this.data, this.options)
+      this.render()
     }
   },
   mounted () {
-    this.data =
-
-    this.renderChart(this.data, this.options)
+    this.render()
   },
   methods: {
     getY (x) {
@@ -83,6 +119,9 @@ export default {
         default:
           return x.Temperature
       }
+    },
+    render () {
+
     }
   }
 }
