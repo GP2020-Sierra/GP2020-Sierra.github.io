@@ -1,12 +1,12 @@
 <template>
   <div class="border-2 rounded-lg py-4 px-1 shadow-lg mb-8">
-    <h1 class="text-xl font-semibold">Basic Chart</h1>
-    <apexchart :options="chartOptions" :series="formattedData" height="200" type="line" />
+    <apexchart :options="chartOptions" :series="formattedData" height="500" type="line" />
   </div>
 </template>
 
 <script>
 export default {
+  name: "Value",
   props: {
     locationData: {
       type: Array,
@@ -17,23 +17,26 @@ export default {
       default: null
     }
   },
-  // name: "LineExample",
   data () {
     return {}
   },
   computed: {
     chartOptions () {
       return {
+        annotations: { yaxis: this.yannotation() },
         title: {
           align: "left"
         },
         xaxis: {
           type: "datetime",
+
           categories: this.locationData.map(x => x.Timestamp * 1000)
         },
         yaxis: {
+
+          showAlways: true,
           tooltip: {
-            enabled: false
+            enabled: true
           }
         },
         chart: {
@@ -50,53 +53,6 @@ export default {
       return [{ name: this.filterObject.yAxis == null ? "value" : this.filterObject.yAxis,
         data: this.locationData.map(x => this.getY(x)) }]
     }
-    /*
-    data () {
-      const thing = { yAxis: "Temperature" }
-      const labelVal = this.filterObject.yAxis == null ? thing.yAxis : this.filterObject.yAxis
-      return {
-        labels: this.locationData.map(x => moment.unix(x.Timestamp)),
-        datasets: [{
-          label: labelVal,
-          borderColor: "rgb(255, 0, 0)",
-          fill: false,
-          lineTension: 0.5,
-          pointRadius: 0,
-          // borderDash: [5, 29],
-          data: this.locationData.map(x => this.getY(x))
-          // cubicInterpolationMode: "monotone"
-        }]
-      }
-    },
-
-    options () {
-      const timeFormat = "MM/DD/YYYY HH:mm"
-      return {
-        title: {
-          text: "Test Graph"
-        },
-        scales: {
-          xAxes: [{
-            type: "time",
-            time: {
-              parser: timeFormat,
-              // round: 'day'
-              tooltipFormat: "ll HH:mm"
-            },
-            scaleLabel: {
-              display: true,
-              labelString: "Date"
-            }
-          }],
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: "value"
-            }
-          }]
-        }
-      }
-    } */
   },
   watch: {
     filterObject (newVal, oldVal) {
@@ -117,6 +73,116 @@ export default {
           return x.Pressure
         default:
           return x.Temperature
+      }
+    },
+    yannotation () {
+      switch (this.filterObject.yAxis) {
+        case "Humidity":
+          return [{
+            y: 20,
+            y2: 23,
+            borderColor: "#7FFF00",
+            fillColor: "#CCFFCC",
+            label: {
+              text: "Optimal temperature range"
+            }
+          },
+          {
+            y: 23,
+            y2: 25,
+            borderColor: "#000",
+            fillColor: "#ffd291"
+          },
+          {
+            y: 25,
+            y2: 27,
+            borderColor: "#000",
+            fillColor: "#ff9445"
+          },
+          {
+            y: 27,
+            y2: 40,
+            borderColor: "#000",
+            fillColor: "#ff3c13"
+          }]
+        case "CO2":
+          return [{
+            y: 400,
+            y2: 1000,
+            borderColor: "#7FFF00",
+            fillColor: "#CCFFCC",
+            label: {
+              text: "Optimal temperature range"
+            }
+          }]
+        case "Pressure":
+          return [{
+            y: 20,
+            y2: 23,
+            borderColor: "#7FFF00",
+            fillColor: "#CCFFCC",
+            label: {
+              text: "Optimal temperature range"
+            }
+          },
+          {
+            y: 23,
+            y2: 25,
+            borderColor: "#000",
+            fillColor: "#ffd291"
+          },
+          {
+            y: 25,
+            y2: 27,
+            borderColor: "#000",
+            fillColor: "#ff9445"
+          },
+          {
+            y: 27,
+            y2: 40,
+            borderColor: "#000",
+            fillColor: "#ff3c13"
+          }]
+        default:
+          return [{
+            y: -5,
+            y2: 17,
+            borderColor: "#000",
+            fillColor: "#b3d9ff"
+          },
+          {
+            y: 17,
+            y2: 20,
+            borderColor: "#000",
+            fillColor: "#b3ecff"
+          },
+          {
+            y: 20,
+            y2: 23,
+            borderColor: "#7FFF00",
+            fillColor: "#CCFFCC",
+            label: {
+              text: "Optimal temperature range"
+            }
+          },
+          {
+            y: 23,
+            y2: 25,
+            borderColor: "#000",
+            fillColor: "#ffd291"
+          },
+          {
+            y: 25,
+            y2: 27,
+            borderColor: "#000",
+            fillColor: "#ff9445"
+          },
+          {
+            y: 27,
+            y2: 40,
+            borderColor: "#000",
+            fillColor: "#ff3c13"
+          }]
       }
     },
     render () {
