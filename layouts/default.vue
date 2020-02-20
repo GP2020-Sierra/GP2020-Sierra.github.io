@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <b-navbar toggleable="sm" type="dark" class="site-header sticky-top">
@@ -15,7 +16,9 @@
               v-for="location in locations"
               :key="location.id"
               v-bind:href="'/location/' + location.id"
-            >{{ location.name }}</b-dropdown-item>
+            >
+              {{ location.name }}
+            </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 
@@ -27,7 +30,7 @@
     <nuxt />
 
     <footer class="container py-5">
-      <hr />
+      <hr>
       <div class="row">
         <div class="col-md">
           <h5>About</h5>
