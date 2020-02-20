@@ -6,10 +6,18 @@
 </template>
 
 <script>
-// import moment from "moment"
-
 export default {
-  name: "LineExample",
+  props: {
+    locationData: {
+      type: Array,
+      required: true
+    },
+    filterObject: {
+      type: Object,
+      default: null
+    }
+  },
+  // name: "LineExample",
   data () {
     return {}
   },
@@ -17,20 +25,11 @@ export default {
     chartOptions () {
       return {
         title: {
-          text: "AAPL",
           align: "left"
         },
         xaxis: {
           type: "datetime",
-          categories: [
-            "2019-01-01",
-            "2019-02-01",
-            "2019-03-01",
-            "2019-04-01",
-            "2019-05-01",
-            "2019-06-01",
-            "2019-07-01"
-          ]
+          categories: this.locationData.map(x => x.Timestamp * 1000)
         },
         yaxis: {
           tooltip: {
@@ -48,8 +47,8 @@ export default {
       }
     },
     formattedData () {
-      return [{ name: "WebsiteHits",
-        data: [15, 20, 21, 25, 60, 120, 93] }]
+      return [{ name: this.filterObject.yAxis == null ? "value" : this.filterObject.yAxis,
+        data: this.locationData.map(x => this.getY(x)) }]
     }
     /*
     data () {
