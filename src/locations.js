@@ -1,13 +1,17 @@
 import axios from "axios"
-const api = "https://gp2020sierra.blob.core.windows.net/data/"
+const api = "https://gp2020-sierra.azurewebsites.net/api/"
 
 export default {
   async _locationsEndpoint () {
-    const { data } = await axios.get(api + "locations.json")
+    const { data } = await axios.get(api + "locations")
     return data
   },
-  async _locationEndpoint (id) {
-    const { data } = await axios.get(api + "location/" + id + ".json")
+  async _dataEndpoint (id) {
+    const { data } = await axios.get(api + "data/" + id)
+    data.forEach((x) => {
+      x.timestamp = Date.parse(x.timestamp) / 1000
+    })
+    console.log(data)
     return data
   },
   async getLocations (context) {
@@ -17,10 +21,12 @@ export default {
     locationList.forEach((location) => {
       location.loadData = async () => {
         if (location.data === undefined) {
-          location.data = await this._locationEndpoint(location.id)
+          location.data = await this._dataEndpoint(location.id)
         }
         return location.data
       }
+      location.id = location.locationID
+      location.timestamp = Date.parse(location.timestamp) / 1000
       locations[location.id] = location
     })
 
