@@ -34,7 +34,7 @@ export default {
     }
   },
   async asyncData (context) {
-    const { locations } = await Locations.getLocations(context)
+    const { locations } = await Locations.summaryPage(context)
     return { locations }
   }
 }

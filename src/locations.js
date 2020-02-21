@@ -17,8 +17,11 @@ export default {
     })
     return data
   },
-  async getLocations (context) {
-    const locationList = await this._locationsEndpoint(context)
+  async getLocations (func) {
+    if (func === undefined) {
+      func = this._locationsEndpoint
+    }
+    const locationList = await func()
     const locations = {}
 
     locationList.forEach((location) => {
@@ -55,5 +58,11 @@ export default {
     context.store.commit("setLocation", location)
 
     return { locations, location }
+  },
+  async summaryPage (context) {
+    const locations = await this.getLocations(this._summaryEndpoint)
+    context.store.commit("setLocations", locations)
+    context.store.commit("setLocation", null)
+    return { locations }
   }
 }
