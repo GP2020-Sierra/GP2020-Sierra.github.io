@@ -5,17 +5,50 @@
       <p class="lead">Location #{{ location.id }}</p>
     </div>
     <div class="locationSmallData box-shadow mx-auto">
-      (location data overview)
+      <table>
+        <!-- <thead>
+          <tr>
+            <th
+              v-for="key in columns"
+              @click="sortBy(key)"
+              :class="{ active: sortKey == key }"
+            >
+              {{ key | capitalize }}
+              <span :class="sortOrders[key] > 0 ? 'asc' : 'dsc'" class="arrow" />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="entry in filteredHeroes">
+            <td v-for="key in columns">
+              {{ entry[key] }}
+            </td>
+          </tr>
+        </tbody> -->
+      </table>
     </div>
   </b-col>
 </template>
 
 <script>
+
 export default {
   props: {
     location: {
       type: Object,
       required: true
+    },
+    locationData: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    columns () {
+      return ["Col1", "Col2"]
+    },
+    filteredHeroes () {
+      return ["A", "B"]
     }
   }
 }

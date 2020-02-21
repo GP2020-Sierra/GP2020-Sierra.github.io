@@ -15,7 +15,7 @@
     </div>
 
     <b-row class="position-relative m-lg-3 no-gutters">
-      <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
+      <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" v-bind:locationData="locationData" />
     </b-row>
   </div>
 </template>
@@ -33,8 +33,13 @@ export default {
       title: "Sierra"
     }
   },
+  computed: {
+    locationData () {
+      return this.locations
+    }
+  },
   async asyncData (context) {
-    const { locations } = await Locations.page(context)
+    const { locations } = await Locations.getLocations(context)
     return { locations }
   }
 }
