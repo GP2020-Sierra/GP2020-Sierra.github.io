@@ -15,7 +15,6 @@ export default {
     data.forEach((x) => {
       x.timestamp = Date.parse(x.timestamp) / 1000
     })
-    console.log(data)
     return data
   },
   async getLocations (context) {
