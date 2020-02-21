@@ -6,31 +6,33 @@
     </div>
     <div class="locationSmallData box-shadow mx-auto">
       <table>
-        <!-- <thead>
+        <thead>
           <tr>
             <th
               v-for="key in columns"
-              @click="sortBy(key)"
-              :class="{ active: sortKey == key }"
+              :key="key"
             >
-              {{ key | capitalize }}
-              <span :class="sortOrders[key] > 0 ? 'asc' : 'dsc'" class="arrow" />
+              {{ key }}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="entry in filteredHeroes">
-            <td v-for="key in columns">
-              {{ entry[key] }}
+          <tr v-for="(param, index) in paramaters" :key="param">
+            <td>
+              {{ param }}
+            </td>
+            <td>
+              {{ values[index] }}
             </td>
           </tr>
-        </tbody> -->
+        </tbody>
       </table>
     </div>
   </b-col>
 </template>
 
 <script>
+import moment from "moment"
 
 export default {
   props: {
@@ -41,11 +43,27 @@ export default {
   },
   computed: {
     columns () {
-      return ["Col1", "Col2"]
+      return ["Paramter", "Reading"]
     },
-    filteredHeroes () {
-      return ["A", "B"]
+    paramaters () {
+      return ["Temperature", "CO2", "Humidity", "Pressure", "Device Count", "Time"]
+    },
+    values () {
+      const vals = []
+      const data = this.location.data[0]
+      const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm:ss a")
+      vals.push(data.temperature.toFixed(1))
+      vals.push(data.eco2.toFixed(1))
+      vals.push(data.humidity.toFixed(1))
+      vals.push(data.pressure.toFixed(1))
+      vals.push(data.wifiDevices)
+      vals.push(time)
+      return vals
     }
+
+  },
+  methods: {
+
   }
 }
 </script>
