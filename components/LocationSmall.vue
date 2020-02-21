@@ -5,28 +5,7 @@
       <p class="lead">Location #{{ location.id }}</p>
     </div>
     <div class="locationSmallData box-shadow mx-auto">
-      <table>
-        <thead>
-          <tr>
-            <th
-              v-for="key in columns"
-              :key="key"
-            >
-              {{ key }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(param, index) in paramaters" :key="param">
-            <td>
-              {{ param }}
-            </td>
-            <td>
-              {{ values[index] }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <b-table :items="items" no-border-collapse sticky-header hover />
     </div>
   </b-col>
 </template>
@@ -42,25 +21,19 @@ export default {
     }
   },
   computed: {
-    columns () {
-      return ["Paramter", "Reading"]
-    },
-    paramaters () {
-      return ["Temperature", "CO2", "Humidity", "Pressure", "Device Count", "Time"]
-    },
-    values () {
-      const vals = []
+    items () {
       const data = this.location.data[0]
+      console.log(data)
       const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm:ss a")
-      vals.push(data.temperature.toFixed(1))
-      vals.push(data.eco2.toFixed(1))
-      vals.push(data.humidity.toFixed(1))
-      vals.push(data.pressure.toFixed(1))
-      vals.push(data.wifiDevices)
-      vals.push(time)
-      return vals
+      return [
+        { Paramater: "Temperature", Reading: data.temperature.toFixed(1) },
+        { Paramater: "CO2", Reading: data.eco2.toFixed(1) },
+        { Paramater: "Humidity", Reading: data.humidity.toFixed(1) },
+        { Paramater: "Pressure", Reading: data.pressure.toFixed(1) },
+        { Paramater: "Device Count", Reading: data.wifiDevices },
+        { Paramater: "Time", Reading: time }
+      ]
     }
-
   },
   methods: {
 
@@ -82,6 +55,11 @@ export default {
     text-decoration-color: white;
   }
 
+  td, th, tr, thead, table {
+    color: $dark;
+    text-decoration-color: $dark;
+  }
+
   .box-shadow {
     color: black;
     background-color: $light;
@@ -95,6 +73,11 @@ export default {
   a, h2 {
     color: $dark;
     text-decoration-color: $dark;
+  }
+
+  td, th, tr, thead, table {
+    color: white;
+    text-decoration-color: white;
   }
 
   .box-shadow {
