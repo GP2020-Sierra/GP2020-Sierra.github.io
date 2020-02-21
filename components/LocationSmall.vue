@@ -37,10 +37,6 @@ export default {
     location: {
       type: Object,
       required: true
-    },
-    locationData: {
-      type: Object,
-      required: true
     }
   },
   computed: {
