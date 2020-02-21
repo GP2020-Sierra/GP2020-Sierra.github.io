@@ -9,7 +9,7 @@
     <b-container>
       <h4>What we set out to achieve:</h4>
       <p>
-        We deployed 6 sensors in common study spaces across Cambridge to try and guage how well suited for work those enviroments are.
+        We deployed 6 sensors in common study spaces across Cambridge to try and gauge how well suited for work those enviroments are.
         To this we detected CO2 levels as well as tempreture, air pressure, humidity and how many people were studying there.
       </p>
     </b-container>
@@ -18,7 +18,7 @@
       <h4>The science behind it all:</h4>
       <p>
         Many studies have shown that the level of carbon dioxide in the room is directly related to a students alertness and ability to concentrate.
-        Even though CO2 is a harmless gas; it can contribute directly to increased tiredness and a loss of concentration.
+        Even though CO2 is a harmless gas, it can contribute directly to increased tiredness and a loss of concentration.
       </p>
       <p>
         According to
