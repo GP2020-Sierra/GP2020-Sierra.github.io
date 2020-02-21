@@ -19,7 +19,7 @@ export default {
       const thing = { yAxis: "Temperature" }
       const labelVal = this.filterObject.yAxis == null ? thing.yAxis : this.filterObject.yAxis
       return {
-        labels: this.locationData.map(x => moment.unix(x.Timestamp)),
+        labels: this.locationData.map(x => moment.unix(x.timestamp)),
         datasets: [{
           label: labelVal,
           borderColor: "rgb(255, 0, 0)",
@@ -65,21 +65,19 @@ export default {
     }
   },
   mounted () {
-    this.data =
-
     this.renderChart(this.data, this.options)
   },
   methods: {
     getY (x) {
       switch (this.filterObject.yAxis) {
         case "Humidity":
-          return x.Humidity
+          return x.humidity
         case "CO2":
-          return x.CO2
+          return x.co2
         case "Pressure":
-          return x.Pressure
+          return x.pressure
         default:
-          return x.Temperature
+          return x.temperature
       }
     }
   }
