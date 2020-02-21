@@ -6,6 +6,10 @@ export default {
     const { data } = await axios.get(api + "locations")
     return data
   },
+  async _summaryEndpoint () {
+    const { data } = await axios.get(api + "summary")
+    return data
+  },
   async _dataEndpoint (id) {
     const { data } = await axios.get(api + "data/" + id)
     data.forEach((x) => {
@@ -31,6 +35,10 @@ export default {
     })
 
     return locations
+  },
+  async getSummary (context) {
+    const summary = await this._summaryEndpoint(context)
+    return summary
   },
   async page (context, locationID) {
     const locations = await this.getLocations()
