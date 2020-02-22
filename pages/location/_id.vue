@@ -25,14 +25,11 @@
           </b-form-select>
         </b-col>
       </b-row>
-      <ApexChartsTEST
+      <TestApexChart
         v-bind:locationData="locationData"
         v-bind:filterObject="filterObject"
         :key="chartKey"
       />
-
-      <!-- <apexchart :options="chartOptions" :series="series" width="500" height="350" type="line" />  -->
-      <!--   <TestChart v-bind:locationData="locationData" v-bind:filterObject="filterObject" :key="chartKey" /> -->
     </b-container>
   </div>
 </template>
@@ -40,11 +37,11 @@
 <script>
 
 import Locations from "~/src/locations.js"
-import ApexChartsTEST from "~/components/ApexChartsTEST.vue"
+import TestApexChart from "~/components/TestApexChart.vue"
 
 export default {
   components: {
-    ApexChartsTEST
+    TestApexChart
   },
   data () {
     return {

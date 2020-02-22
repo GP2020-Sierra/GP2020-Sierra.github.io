@@ -23,14 +23,14 @@ export default {
   computed: {
     chartOptions () {
       return {
-        annotations: { yaxis: this.yannotation() },
+        annotations: { yaxis: this.yAnnotation() },
         title: {
           align: "left"
         },
         xaxis: {
           type: "datetime",
 
-          categories: this.locationData.map(x => x.Timestamp * 1000)
+          categories: this.locationData.map(x => x.timestamp * 1000)
         },
         yaxis: {
 
@@ -66,16 +66,16 @@ export default {
     getY (x) {
       switch (this.filterObject.yAxis) {
         case "Humidity":
-          return x.Humidity
+          return x.humidity
         case "CO2":
-          return x.CO2
+          return x.co2
         case "Pressure":
-          return x.Pressure
+          return x.pressure
         default:
-          return x.Temperature
+          return x.temperature
       }
     },
-    yannotation () {
+    yAnnotation () {
       switch (this.filterObject.yAxis) {
         case "Humidity":
           return [{
