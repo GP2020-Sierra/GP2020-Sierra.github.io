@@ -27,7 +27,7 @@ jobs:
         ref: master
         path: master
     - name: Update the local copy of the master branch
-      run: rsync -av dist/ master/ --delete --exclude=".git"
+      run: rsync -avcW dist/ master/ --delete --exclude=".git"
     - name: Commit changes to the master branch
       run: |
         cd master
