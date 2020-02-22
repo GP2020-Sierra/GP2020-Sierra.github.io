@@ -5,18 +5,38 @@
       <p class="lead">Location #{{ location.id }}</p>
     </div>
     <div class="locationSmallData box-shadow mx-auto">
-      (location data overview)
+      <b-table :items="items" no-border-collapse hover />
     </div>
   </b-col>
 </template>
 
 <script>
+import moment from "moment"
+
 export default {
   props: {
     location: {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    items () {
+      const data = this.location.data[0]
+      console.log(data)
+      const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm:ss a")
+      return [
+        { Paramater: "Temperature", Reading: data.temperature.toFixed(1) },
+        { Paramater: "CO2", Reading: data.co2.toFixed(1) },
+        { Paramater: "Humidity", Reading: data.humidity.toFixed(1) },
+        { Paramater: "Pressure", Reading: data.pressure.toFixed(1) },
+        // { Paramater: "Device Count", Reading: data.devices },
+        { Paramater: "Time", Reading: time }
+      ]
+    }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -35,6 +55,11 @@ export default {
     text-decoration-color: white;
   }
 
+  td, th, tr, thead {
+    color: $dark;
+    text-decoration-color: $dark;
+  }
+
   .box-shadow {
     color: black;
     background-color: $light;
@@ -48,6 +73,11 @@ export default {
   a, h2 {
     color: $dark;
     text-decoration-color: $dark;
+  }
+
+  td, th, tr, thead {
+    color: white;
+    text-decoration-color: white;
   }
 
   .box-shadow {

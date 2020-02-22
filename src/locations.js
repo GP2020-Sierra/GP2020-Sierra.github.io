@@ -6,16 +6,22 @@ export default {
     const { data } = await axios.get(api + "locations")
     return data
   },
+  async _summaryEndpoint () {
+    const { data } = await axios.get(api + "summary")
+    return data
+  },
   async _dataEndpoint (id) {
     const { data } = await axios.get(api + "data/" + id)
     data.forEach((x) => {
       x.timestamp = Date.parse(x.timestamp) / 1000
     })
-    console.log(data)
     return data
   },
-  async getLocations (context) {
-    const locationList = await this._locationsEndpoint(context)
+  async getLocations (func) {
+    if (func === undefined) {
+      func = this._locationsEndpoint
+    }
+    const locationList = await func()
     const locations = {}
 
     locationList.forEach((location) => {
@@ -31,6 +37,10 @@ export default {
     })
 
     return locations
+  },
+  async getSummary (context) {
+    const summary = await this._summaryEndpoint(context)
+    return summary
   },
   async page (context, locationID) {
     const locations = await this.getLocations()
@@ -48,5 +58,11 @@ export default {
     context.store.commit("setLocation", location)
 
     return { locations, location }
+  },
+  async summaryPage (context) {
+    const locations = await this.getLocations(this._summaryEndpoint)
+    context.store.commit("setLocations", locations)
+    context.store.commit("setLocation", null)
+    return { locations }
   }
 }

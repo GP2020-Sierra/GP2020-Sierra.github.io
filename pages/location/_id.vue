@@ -19,7 +19,9 @@
               v-for="option in options"
               v-bind:key="option"
               :value="option"
-            >{{ option }}</b-form-select-option>
+            >
+              {{ option }}
+            </b-form-select-option>
           </b-form-select>
         </b-col>
       </b-row>
