@@ -5,7 +5,7 @@
       <p class="lead">Location #{{ location.id }}</p>
     </div>
     <div class="locationSmallData box-shadow mx-auto">
-      <b-table :items="items" no-border-collapse sticky-header hover />
+      <b-table :items="items" no-border-collapse hover />
     </div>
   </b-col>
 </template>
@@ -27,10 +27,10 @@ export default {
       const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm:ss a")
       return [
         { Paramater: "Temperature", Reading: data.temperature.toFixed(1) },
-        { Paramater: "CO2", Reading: data.eco2.toFixed(1) },
+        { Paramater: "CO2", Reading: data.co2.toFixed(1) },
         { Paramater: "Humidity", Reading: data.humidity.toFixed(1) },
         { Paramater: "Pressure", Reading: data.pressure.toFixed(1) },
-        { Paramater: "Device Count", Reading: data.wifiDevices },
+        // { Paramater: "Device Count", Reading: data.devices },
         { Paramater: "Time", Reading: time }
       ]
     }
@@ -55,7 +55,7 @@ export default {
     text-decoration-color: white;
   }
 
-  td, th, tr, thead, table {
+  td, th, tr, thead {
     color: $dark;
     text-decoration-color: $dark;
   }
@@ -75,7 +75,7 @@ export default {
     text-decoration-color: $dark;
   }
 
-  td, th, tr, thead, table {
+  td, th, tr, thead {
     color: white;
     text-decoration-color: white;
   }
