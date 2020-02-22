@@ -37,6 +37,9 @@ export default {
           showAlways: true,
           tooltip: {
             enabled: true
+          },
+          labels: {
+            formatter: val => val.toFixed(0)
           }
         },
         chart: {
@@ -78,33 +81,41 @@ export default {
     yAnnotation () {
       switch (this.filterObject.yAxis) {
         case "Humidity":
-          return [{
-            y: 20,
-            y2: 23,
-            borderColor: "#7FFF00",
-            fillColor: "#CCFFCC",
-            label: {
-              text: "Optimal temperature range"
+          return [
+            {
+              y: 0,
+              y2: 30,
+              borderColor: "#000",
+              fillColor: "#b3ecff"
+            },
+            {
+              y: 30,
+              y2: 40,
+              borderColor: "#7FFF00",
+              fillColor: "#CCFFCC",
+              label: {
+                text: "Optimal humidity range"
+              }
+            },
+            {
+              y: 40,
+              y2: 50,
+              borderColor: "#000",
+              fillColor: "#ffd291"
+            },
+            {
+              y: 50,
+              y2: 65,
+              borderColor: "#000",
+              fillColor: "#ff9445"
+            },
+            {
+              y: 65,
+              y2: 100,
+              borderColor: "#000",
+              fillColor: "#ff3c13"
             }
-          },
-          {
-            y: 23,
-            y2: 25,
-            borderColor: "#000",
-            fillColor: "#ffd291"
-          },
-          {
-            y: 25,
-            y2: 27,
-            borderColor: "#000",
-            fillColor: "#ff9445"
-          },
-          {
-            y: 27,
-            y2: 40,
-            borderColor: "#000",
-            fillColor: "#ff3c13"
-          }]
+          ]
         case "CO2":
           return [{
             y: 400,
@@ -112,36 +123,18 @@ export default {
             borderColor: "#7FFF00",
             fillColor: "#CCFFCC",
             label: {
-              text: "Optimal temperature range"
+              text: "Optimal CO2 range"
             }
           }]
         case "Pressure":
           return [{
-            y: 20,
-            y2: 23,
+            y: 1010,
+            y2: 1020,
             borderColor: "#7FFF00",
             fillColor: "#CCFFCC",
             label: {
-              text: "Optimal temperature range"
+              text: "Optimal pressure range"
             }
-          },
-          {
-            y: 23,
-            y2: 25,
-            borderColor: "#000",
-            fillColor: "#ffd291"
-          },
-          {
-            y: 25,
-            y2: 27,
-            borderColor: "#000",
-            fillColor: "#ff9445"
-          },
-          {
-            y: 27,
-            y2: 40,
-            borderColor: "#000",
-            fillColor: "#ff3c13"
           }]
         default:
           return [{
@@ -185,6 +178,7 @@ export default {
           }]
       }
     },
+
     render () {
 
     }
