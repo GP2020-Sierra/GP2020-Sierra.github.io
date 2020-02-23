@@ -63,6 +63,13 @@ export default {
     const locations = await this.getLocations(this._summaryEndpoint)
     context.store.commit("setLocations", locations)
     context.store.commit("setLocation", null)
-    return { locations }
-  }
+    const summaryUpdater = async () => {
+      const newLocations = await this.getLocations(this._summaryEndpoint)
+      Object.values(locations).forEach((x) => {
+        context.store.commit("setLocData", { locID: x.id, locData: newLocations[x.id].data })
+      })
+    }
+    return { locations, summaryUpdater }
+  },
+  updateInterval: 30000
 }

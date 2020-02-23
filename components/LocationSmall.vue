@@ -4,7 +4,7 @@
       <a v-bind:href="'/location/' + location.id"><h2 class="display-6">{{ location.name }}</h2></a>
       <p class="lead">Location #{{ location.id }}</p>
     </div>
-    <div class="locationSmallData box-shadow mx-auto">
+    <div class="locationSmallData box-shadow mx-auto overflow-hidden">
       <b-table :items="items" no-border-collapse hover />
     </div>
   </b-col>
@@ -23,15 +23,14 @@ export default {
   computed: {
     items () {
       const data = this.location.data[0]
-      console.log(data)
-      const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm:ss a")
+      const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm a")
       return [
-        { Paramater: "Temperature", Reading: data.temperature.toFixed(1) },
-        { Paramater: "CO2", Reading: data.co2.toFixed(1) },
-        { Paramater: "Humidity", Reading: data.humidity.toFixed(1) },
-        { Paramater: "Pressure", Reading: data.pressure.toFixed(1) },
+        { Paramater: "Temperature", Reading: data.temperature.toFixed(1) + "°C" },
+        { Paramater: "CO2", Reading: data.co2.toFixed(1) + " ppm" },
+        { Paramater: "Humidity", Reading: data.humidity.toFixed(1) + "%" },
+        { Paramater: "Pressure", Reading: data.pressure.toFixed(1) + " mb" },
         // { Paramater: "Device Count", Reading: data.devices },
-        { Paramater: "Time", Reading: time }
+        { Paramater: "Last Update", Reading: time }
       ]
     }
   },
