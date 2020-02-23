@@ -9,5 +9,9 @@ export const mutations = {
   },
   setLocation (state, location) {
     state.location = location
+  },
+  setLocData (state, { locID, locData }) {
+    const loc = state.locations[locID]
+    loc.data = locData
   }
 }

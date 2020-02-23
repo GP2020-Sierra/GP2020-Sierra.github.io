@@ -34,8 +34,11 @@ export default {
     }
   },
   async asyncData (context) {
-    const { locations } = await Locations.summaryPage(context)
-    return { locations }
+    const { locations, summaryUpdater } = await Locations.summaryPage(context)
+    return { locations, summaryUpdater }
+  },
+  created () {
+    setInterval(this.summaryUpdater, Locations.updateInterval)
   }
 }
 </script>
