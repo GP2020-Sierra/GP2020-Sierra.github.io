@@ -35,13 +35,13 @@ export default {
           group: "social",
           type: "line",
           animations: { enabled: true },
-          zoom: { autoScaleYaxis: false // https://github.com/apexcharts/apexcharts.js/issues/566 }
-          }
+          zoom: { autoScaleYaxis: false }
         },
-        annotations: { yaxis: this.yAnnotation() },
+        annotations: { yaxis: this.annotationY("Temperature") },
         xaxis: {
           type: "datetime",
-          categories: this.locationData.map(x => x.timestamp * 1000)
+          categories: this.locationData.map(x => x.timestamp * 1000),
+          tooltip: { enabled: false }
         },
         yaxis: {
           showAlways: true,
@@ -49,8 +49,14 @@ export default {
             formatter: val => val.toFixed(0),
             minWidth: 40
           }
-
-        }
+        },
+        tooltip: {
+          x: { format: "dd MMM HH:mm" },
+          y: {
+            formatter: val => val.toFixed(0) + "°C",
+            title: { formatter: seriesName => "" }
+          },
+          marker: { show: false } }
       }
     },
     formattedData () {
@@ -67,21 +73,13 @@ export default {
           group: "social",
           type: "line",
           animations: { enabled: true },
-          zoom: { autoScaleYaxis: false // https://github.com/apexcharts/apexcharts.js/issues/566 }
-          }
+          zoom: { autoScaleYaxis: false }
         },
-        annotations: { yaxis: [{
-          y: 400,
-          y2: 1000,
-          borderColor: "#7FFF00",
-          fillColor: "#CCFFCC",
-          label: {
-            text: "Optimal CO2 range"
-          }
-        }] },
+        annotations: { yaxis: this.annotationY("CO2") },
         xaxis: {
           type: "datetime",
-          categories: this.locationData.map(x => x.timestamp * 1000)
+          categories: this.locationData.map(x => x.timestamp * 1000),
+          tooltip: { enabled: false }
         },
         yaxis: {
           showAlways: true,
@@ -89,7 +87,14 @@ export default {
             formatter: val => val.toFixed(0),
             minWidth: 40
           }
-        }
+        },
+        tooltip: {
+          x: { format: "dd MMM HH:mm" },
+          y: {
+            formatter: val => val.toFixed(0) + "ppm",
+            title: { formatter: seriesName => "" }
+          },
+          marker: { show: false } }
       }
     },
 
@@ -107,22 +112,13 @@ export default {
           group: "social",
           type: "line",
           animations: { enabled: true },
-          zoom: { autoScaleYaxis: false // https://github.com/apexcharts/apexcharts.js/issues/566 }
-          }
-
+          zoom: { autoScaleYaxis: false }
         },
-        annotations: { yaxis: [{
-          y: 1010,
-          y2: 1020,
-          borderColor: "#7FFF00",
-          fillColor: "#CCFFCC",
-          label: {
-            text: "Optimal pressure range"
-          }
-        }] },
+        annotations: { yaxis: this.annotationY("Pressure") },
         xaxis: {
           type: "datetime",
-          categories: this.locationData.map(x => x.timestamp * 1000)
+          categories: this.locationData.map(x => x.timestamp * 1000),
+          tooltip: { enabled: false }
         },
         yaxis: {
           showAlways: true,
@@ -130,8 +126,14 @@ export default {
             formatter: val => val.toFixed(0),
             minWidth: 40
           }
-
-        }
+        },
+        tooltip: {
+          x: { format: "dd MMM HH:mm" },
+          y: {
+            formatter: val => val.toFixed(0) + "hPa",
+            title: { formatter: seriesName => "" }
+          },
+          marker: { show: false } }
       }
     },
     formattedData3 () {
@@ -148,48 +150,13 @@ export default {
           group: "social",
           type: "line",
           animations: { enabled: true },
-          zoom: { autoScaleYaxis: false // https://github.com/apexcharts/apexcharts.js/issues/566 }
-          }
-
+          zoom: { autoScaleYaxis: false }
         },
-        annotations: { yaxis: [
-          {
-            y: 0,
-            y2: 30,
-            borderColor: "#000",
-            fillColor: "#b3ecff"
-          },
-          {
-            y: 30,
-            y2: 40,
-            borderColor: "#7FFF00",
-            fillColor: "#CCFFCC",
-            label: {
-              text: "Optimal humidity range"
-            }
-          },
-          {
-            y: 40,
-            y2: 50,
-            borderColor: "#000",
-            fillColor: "#ffd291"
-          },
-          {
-            y: 50,
-            y2: 65,
-            borderColor: "#000",
-            fillColor: "#ff9445"
-          },
-          {
-            y: 65,
-            y2: 100,
-            borderColor: "#000",
-            fillColor: "#ff3c13"
-          }
-        ] },
+        annotations: { yaxis: this.annotationY("Humidity") },
         xaxis: {
           type: "datetime",
-          categories: this.locationData.map(x => x.timestamp * 1000)
+          categories: this.locationData.map(x => x.timestamp * 1000),
+          tooltip: { enabled: false }
         },
         yaxis: {
           showAlways: true,
@@ -197,11 +164,16 @@ export default {
             formatter: val => val.toFixed(0),
             minWidth: 40
           }
-
-        }
+        },
+        tooltip: {
+          x: { format: "dd MMM HH:mm" },
+          y: {
+            formatter: val => val.toFixed(0) + "%",
+            title: { formatter: seriesName => "" }
+          },
+          marker: { show: false } }
       }
     },
-
     formattedData4 () {
       return [{ data: this.locationData.map(x => x.humidity) }]
     }
@@ -227,8 +199,8 @@ export default {
           return x.temperature
       }
     },
-    yAnnotation () {
-      switch (this.filterObject.yAxis) {
+    annotationY (str) {
+      switch (str) {
         case "Humidity":
           return [
             {
@@ -267,24 +239,61 @@ export default {
           ]
         case "CO2":
           return [{
-            y: 400,
+            y: 0,
             y2: 1000,
             borderColor: "#7FFF00",
             fillColor: "#CCFFCC",
             label: {
               text: "Optimal CO2 range"
             }
+          },
+          {
+            y: 1000,
+            y2: 1500,
+            borderColor: "#000",
+            fillColor: "#ffd291"
+          },
+          {
+            y: 1050,
+            y2: 3000,
+            borderColor: "#000",
+            fillColor: "#ff9445"
+          },
+          {
+            y: 3000,
+            y2: 10000,
+            borderColor: "#000",
+            fillColor: "#ff3c13"
           }]
         case "Pressure":
           return [{
-            y: 1010,
-            y2: 1020,
+            y: 0,
+            y2: 1000,
+            borderColor: "#000",
+            fillColor: "#b3ecff"
+          },
+          {
+            y: 1000,
+            y2: 1030,
             borderColor: "#7FFF00",
             fillColor: "#CCFFCC",
             label: {
               text: "Optimal pressure range"
             }
-          }]
+          },
+          {
+            y: 1030,
+            y2: 1050,
+            borderColor: "#000",
+            fillColor: "#ff9445"
+          },
+          {
+            y: 1050,
+            y2: 10000,
+            borderColor: "#000",
+            fillColor: "#ff3c13"
+          }
+          ]
         default:
           return [{
             y: -5,
@@ -327,8 +336,10 @@ export default {
           }]
       }
     },
+    yAnnotation () {
+      return this.annotationY(this.filterObject.yAxis)
+    },
     render () {
-
     }
   }
 }
