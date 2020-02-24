@@ -8,7 +8,7 @@
 
     <b-container>
       <p>My ID #: {{ location.id }}</p>
-      <b-row class="center">
+      <b-row class="text-center">
         <b-col>
           <b-form-group label="Graphs to display:">
             <b-form-checkbox-group id="checkbox-group-2" v-model="selected" :options="options" name="flavour-2" />
