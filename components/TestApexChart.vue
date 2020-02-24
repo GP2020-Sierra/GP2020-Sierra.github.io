@@ -1,9 +1,9 @@
 <template>
   <div class="border-2 rounded-lg py-4 px-1 shadow-lg mb-8">
-    <apexchart :options="chartOptions" :series="formattedData" height="250" type="line" />
-    <apexchart :options="chartOptions2" :series="formattedData2" height="250" type="line" />
-    <apexchart :options="chartOptions3" :series="formattedData3" height="250" type="line" />
-    <apexchart :options="chartOptions4" :series="formattedData4" height="250" type="line" />
+    <apexchart v-if="filterObject.temperature" :options="temperature" :series="tempData" height="250" type="line" />
+    <apexchart v-if="filterObject.co2" :options="co2" :series="co2Data" height="250" type="line" />
+    <apexchart v-if="filterObject.pressure" :options="pressure" :series="pressureData" height="250" type="line" />
+    <apexchart v-if="filterObject.humidity" :options="humidity" :series="humidityData" height="250" type="line" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     return {}
   },
   computed: {
-    chartOptions () {
+    temperature () {
       return {
         title: {
           text: "Temperature",
@@ -59,10 +59,10 @@ export default {
           marker: { show: false } }
       }
     },
-    formattedData () {
+    tempData () {
       return [{ data: this.locationData.map(x => x.temperature) }]
     },
-    chartOptions2 () {
+    co2 () {
       return {
         title: {
           text: "CO2",
@@ -98,10 +98,10 @@ export default {
       }
     },
 
-    formattedData2 () {
+    co2Data () {
       return [{ data: this.locationData.map(x => x.co2) }]
     },
-    chartOptions3 () {
+    pressure () {
       return {
         title: {
           text: "Pressure",
@@ -136,10 +136,10 @@ export default {
           marker: { show: false } }
       }
     },
-    formattedData3 () {
+    pressureData () {
       return [{ data: this.locationData.map(x => x.pressure) }]
     },
-    chartOptions4 () {
+    humidity () {
       return {
         title: {
           text: "Humidity",
@@ -174,31 +174,16 @@ export default {
           marker: { show: false } }
       }
     },
-    formattedData4 () {
+    humidityData () {
       return [{ data: this.locationData.map(x => x.humidity) }]
     }
   },
   watch: {
     filterObject (newVal, oldVal) {
-      this.render()
+      // on change?
     }
   },
-  mounted () {
-    this.render()
-  },
   methods: {
-    getY (x) {
-      switch (this.filterObject.yAxis) {
-        case "Humidity":
-          return x.humidity
-        case "CO2":
-          return x.co2
-        case "Pressure":
-          return x.pressure
-        default:
-          return x.temperature
-      }
-    },
     annotationY (str) {
       switch (str) {
         case "Humidity":
@@ -335,11 +320,6 @@ export default {
             fillColor: "#ff3c13"
           }]
       }
-    },
-    yAnnotation () {
-      return this.annotationY(this.filterObject.yAxis)
-    },
-    render () {
     }
   }
 }

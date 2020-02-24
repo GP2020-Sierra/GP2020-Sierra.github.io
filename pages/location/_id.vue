@@ -8,28 +8,14 @@
 
     <b-container>
       <p>My ID #: {{ location.id }}</p>
-      <b-row>
+      <b-row class="text-center">
         <b-col>
-          <b-button v-on:click="forceRerender()">Hacky refresh</b-button>
-        </b-col>
-        <p>Y axis:</p>
-        <b-col>
-          <b-form-select v-model="yAxis">
-            <b-form-select-option
-              v-for="option in options"
-              v-bind:key="option"
-              :value="option"
-            >
-              {{ option }}
-            </b-form-select-option>
-          </b-form-select>
+          <b-form-group label="Graphs to display:">
+            <b-form-checkbox-group id="checkbox-group-2" v-model="selected" :options="options" name="flavour-2" />
+          </b-form-group>
         </b-col>
       </b-row>
-      <TestApexChart
-        v-bind:locationData="locationData"
-        v-bind:filterObject="filterObject"
-        :key="chartKey"
-      />
+      <TestApexChart v-if="selected" v-bind:locationData="locationData" v-bind:filterObject="filterObject" :key="chartKey" />
     </b-container>
   </div>
 </template>
@@ -47,19 +33,27 @@ export default {
     return {
       date: new Date(),
       yAxis: null,
-      chartKey: 0
+      chartKey: 0,
+      selected: ["temperature", "co2", "humidity", "pressure"],
+      options: [
+        { text: "Temperature", value: "temperature" },
+        { text: "CO2", value: "co2" },
+        { text: "Humidity", value: "humidity" },
+        { text: "Pressure", value: "pressure" }
+      ]
     }
   },
   computed: {
     locationData () {
       return this.location.data
     },
-    options () {
-      const possibleYs = ["Temperature", "CO2", "Pressure", "Humidity"]
-      return possibleYs
-    },
     filterObject () {
-      return { yAxis: this.yAxis }
+      return {
+        temperature: this.selected.includes("temperature"),
+        co2: this.selected.includes("co2"),
+        humidity: this.selected.includes("humidity"),
+        pressure: this.selected.includes("pressure")
+      }
     }
   },
   async asyncData (context) {
