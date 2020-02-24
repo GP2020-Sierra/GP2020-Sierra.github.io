@@ -1,9 +1,9 @@
 <template>
   <div class="border-2 rounded-lg py-4 px-1 shadow-lg mb-8">
-    <apexchart :options="chartOptions" :series="formattedData" height="250" type="line" />
-    <apexchart :options="chartOptions2" :series="formattedData2" height="250" type="line" />
-    <apexchart :options="chartOptions3" :series="formattedData3" height="250" type="line" />
-    <apexchart :options="chartOptions4" :series="formattedData4" height="250" type="line" />
+    <apexchart v-if="filterObject.temperature" :options="temperature" :series="formattedData" height="250" type="line" />
+    <apexchart v-if="filterObject.co2" :options="co2" :series="formattedData2" height="250" type="line" />
+    <apexchart v-if="filterObject.pressure" :options="pressure" :series="formattedData3" height="250" type="line" />
+    <apexchart v-if="filterObject.humidity" :options="humidity" :series="formattedData4" height="250" type="line" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     return {}
   },
   computed: {
-    chartOptions () {
+    temperature () {
       return {
         title: {
           text: "Temperature",
@@ -62,7 +62,7 @@ export default {
     formattedData () {
       return [{ data: this.locationData.map(x => x.temperature) }]
     },
-    chartOptions2 () {
+    co2 () {
       return {
         title: {
           text: "CO2",
@@ -101,7 +101,7 @@ export default {
     formattedData2 () {
       return [{ data: this.locationData.map(x => x.co2) }]
     },
-    chartOptions3 () {
+    pressure () {
       return {
         title: {
           text: "Pressure",
@@ -139,7 +139,7 @@ export default {
     formattedData3 () {
       return [{ data: this.locationData.map(x => x.pressure) }]
     },
-    chartOptions4 () {
+    humidity () {
       return {
         title: {
           text: "Humidity",
