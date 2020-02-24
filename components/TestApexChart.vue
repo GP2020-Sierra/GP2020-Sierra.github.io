@@ -180,11 +180,8 @@ export default {
   },
   watch: {
     filterObject (newVal, oldVal) {
-      this.render()
+      // on change?
     }
-  },
-  mounted () {
-    this.render()
   },
   methods: {
     annotationY (str) {
@@ -323,11 +320,6 @@ export default {
             fillColor: "#ff3c13"
           }]
       }
-    },
-    yAnnotation () {
-      return this.annotationY(this.filterObject.yAxis)
-    },
-    render () {
     }
   }
 }
