@@ -34,7 +34,7 @@ export default {
       date: new Date(),
       yAxis: null,
       chartKey: 0,
-      selected: ["temperature", "co2", "humidity", "pressure"],
+      selected: ["temperature", "co2", "humidity", "pressure", "devices"],
       options: [
         { text: "Temperature", value: "temperature" },
         { text: "CO2", value: "co2" },
