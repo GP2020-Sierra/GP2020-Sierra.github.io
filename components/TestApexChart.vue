@@ -4,6 +4,7 @@
     <apexchart v-if="filterObject.co2" :options="co2" :series="co2Data" height="250" type="line" />
     <apexchart v-if="filterObject.pressure" :options="pressure" :series="pressureData" height="250" type="line" />
     <apexchart v-if="filterObject.humidity" :options="humidity" :series="humidityData" height="250" type="line" />
+    <apexchart v-if="filterObject.devices" :options="devices" :series="devicesData" height="250" type="line" />
   </div>
 </template>
 
@@ -176,6 +177,44 @@ export default {
     },
     humidityData () {
       return [{ data: this.locationData.map(x => x.humidity) }]
+    },
+    devices () {
+      return {
+        title: {
+          text: "Device Count (approx people count)",
+          align: "left"
+        },
+        chart: {
+          id: "line-4",
+          group: "social",
+          type: "line",
+          animations: { enabled: true },
+          zoom: { autoScaleYaxis: false }
+        },
+        annotations: { yaxis: this.annotationY("Devices") },
+        xaxis: {
+          type: "datetime",
+          categories: this.locationData.map(x => x.timestamp * 1000),
+          tooltip: { enabled: false }
+        },
+        yaxis: {
+          showAlways: true,
+          labels: {
+            formatter: val => val.toFixed(0),
+            minWidth: 40
+          }
+        },
+        tooltip: {
+          x: { format: "dd MMM HH:mm" },
+          y: {
+            formatter: val => val.toFixed(0),
+            title: { formatter: seriesName => "" }
+          },
+          marker: { show: false } }
+      }
+    },
+    devicesData () {
+      return [{ data: this.locationData.map(x => x.devices) }]
     }
   },
   watch: {
@@ -186,6 +225,42 @@ export default {
   methods: {
     annotationY (str) {
       switch (str) {
+        case "Devices":
+          return [
+            {
+              y: 0,
+              y2: 10,
+              borderColor: "#000",
+              fillColor: "#b3ecff"
+            },
+            {
+              y: 10,
+              y2: 25,
+              borderColor: "#7FFF00",
+              fillColor: "#CCFFCC",
+              label: {
+                text: "Optimal humidity range"
+              }
+            },
+            {
+              y: 25,
+              y2: 50,
+              borderColor: "#000",
+              fillColor: "#ffd291"
+            },
+            {
+              y: 50,
+              y2: 75,
+              borderColor: "#000",
+              fillColor: "#ff9445"
+            },
+            {
+              y: 75,
+              y2: 100,
+              borderColor: "#000",
+              fillColor: "#ff3c13"
+            }
+          ]
         case "Humidity":
           return [
             {

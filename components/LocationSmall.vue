@@ -29,7 +29,7 @@ export default {
         { Paramater: "CO2", Reading: data.co2.toFixed(1) + " ppm" },
         { Paramater: "Humidity", Reading: data.humidity.toFixed(1) + "%" },
         { Paramater: "Pressure", Reading: data.pressure.toFixed(1) + " mb" },
-        // { Paramater: "Device Count", Reading: data.devices },
+        { Paramater: "Device Count", Reading: data.devices },
         { Paramater: "Last Update", Reading: time }
       ]
     }
@@ -91,7 +91,7 @@ export default {
 
   .locationSmallData {
     width: 80%;
-    height: 300px;
+    height: 345px;
     border-radius: 21px 21px 0 0;
   }
 }

@@ -34,12 +34,13 @@ export default {
       date: new Date(),
       yAxis: null,
       chartKey: 0,
-      selected: ["temperature", "co2", "humidity", "pressure"],
+      selected: ["temperature", "co2", "humidity", "pressure", "devices"],
       options: [
         { text: "Temperature", value: "temperature" },
         { text: "CO2", value: "co2" },
         { text: "Humidity", value: "humidity" },
-        { text: "Pressure", value: "pressure" }
+        { text: "Pressure", value: "pressure" },
+        { text: "Devices", value: "devices" }
       ]
     }
   },
@@ -52,7 +53,8 @@ export default {
         temperature: this.selected.includes("temperature"),
         co2: this.selected.includes("co2"),
         humidity: this.selected.includes("humidity"),
-        pressure: this.selected.includes("pressure")
+        pressure: this.selected.includes("pressure"),
+        devices: this.selected.includes("devices")
       }
     }
   },
