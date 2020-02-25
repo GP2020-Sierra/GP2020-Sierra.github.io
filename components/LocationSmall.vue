@@ -1,8 +1,8 @@
 <template>
   <b-col class="col-12 col-lg-6 m-0 p-2 text-center locationSmall">
-    <div class="my-3 py-3">
+    <div class="my-2 py-2">
       <a v-bind:href="'/location/' + location.id"><h2 class="display-6">{{ location.name }}</h2></a>
-      <p class="lead">Location #{{ location.id }}</p>
+      <p class="lead">Last Updated {{ lastUpdate }}</p>
     </div>
     <div class="locationSmallData box-shadow mx-auto overflow-hidden">
       <b-table :items="items" no-border-collapse hover />
@@ -23,15 +23,16 @@ export default {
   computed: {
     items () {
       const data = this.location.data[0]
-      const time = moment(data.timestamp).format("DD/MM/YYYY, h:mm a")
       return [
         { Paramater: "Temperature", Reading: data.temperature.toFixed(1) + "°C" },
         { Paramater: "CO2", Reading: data.co2.toFixed(1) + " ppm" },
         { Paramater: "Humidity", Reading: data.humidity.toFixed(1) + "%" },
         { Paramater: "Pressure", Reading: data.pressure.toFixed(1) + " mb" },
-        { Paramater: "Device Count", Reading: data.devices },
-        { Paramater: "Last Update", Reading: time }
+        { Paramater: "Device Count", Reading: data.devices }
       ]
+    },
+    lastUpdate () {
+      return moment(this.location.data[0].timestamp).format("DD/MM/YYYY, h:mm a")
     }
   },
   methods: {
@@ -44,6 +45,8 @@ export default {
 @import 'bootstrap/scss/_functions';
 @import 'bootstrap/scss/_variables';
 @import 'bootstrap/scss/mixins/_breakpoints.scss';
+
+$light: #F0F0F0;
 
 @mixin locationDark {
   color: white;
@@ -91,8 +94,12 @@ export default {
 
   .locationSmallData {
     width: 80%;
-    height: 345px;
+    height: 250px;
     border-radius: 21px 21px 0 0;
+
+    td, th {
+      padding: 8px;
+    }
   }
 }
 
