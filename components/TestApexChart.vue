@@ -2,8 +2,8 @@
   <div class="border-2 rounded-lg py-4 px-1 shadow-lg mb-8">
     <apexchart v-if="filterObject.temperature" :options="temperature" :series="tempData" height="250" type="line" />
     <apexchart v-if="filterObject.co2" :options="co2" :series="co2Data" height="250" type="line" />
-    <apexchart v-if="filterObject.pressure" :options="pressure" :series="pressureData" height="250" type="line" />
     <apexchart v-if="filterObject.humidity" :options="humidity" :series="humidityData" height="250" type="line" />
+    <apexchart v-if="filterObject.pressure" :options="pressure" :series="pressureData" height="250" type="line" />
     <apexchart v-if="filterObject.devices" :options="devices" :series="devicesData" height="250" type="line" />
   </div>
 </template>
