@@ -226,41 +226,7 @@ export default {
     annotationY (str) {
       switch (str) {
         case "Devices":
-          return [
-            {
-              y: 0,
-              y2: 10,
-              borderColor: "#000",
-              fillColor: "#b3ecff"
-            },
-            {
-              y: 10,
-              y2: 25,
-              borderColor: "#7FFF00",
-              fillColor: "#CCFFCC",
-              label: {
-                text: "Optimal humidity range"
-              }
-            },
-            {
-              y: 25,
-              y2: 50,
-              borderColor: "#000",
-              fillColor: "#ffd291"
-            },
-            {
-              y: 50,
-              y2: 75,
-              borderColor: "#000",
-              fillColor: "#ff9445"
-            },
-            {
-              y: 75,
-              y2: 100,
-              borderColor: "#000",
-              fillColor: "#ff3c13"
-            }
-          ]
+          return []
         case "Humidity":
           return [
             {
@@ -300,6 +266,12 @@ export default {
         case "CO2":
           return [{
             y: 0,
+            y2: 400,
+            borderColor: "#000",
+            fillColor: "#b3ecff"
+          },
+          {
+            y: 400,
             y2: 1000,
             borderColor: "#7FFF00",
             fillColor: "#CCFFCC",

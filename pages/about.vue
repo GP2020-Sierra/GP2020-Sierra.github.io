@@ -36,7 +36,8 @@
     </b-container>
 
       <!-- TODO: same for resource below:
-      <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>-->
+      <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>
+      <p>https://ehp.niehs.nih.gov/doi/10.1289/ehp.1510037</p>-->
     </b-container>
   </div>
 </template>
