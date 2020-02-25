@@ -14,7 +14,7 @@
         <p v-if="upToDateLocations==[]" class="display-6">We cannot recommend a place to study as our data isn't up to date :(</p>
         <p v-else class="display-6">Based on CO2 levels, the best place to study right now is {{ recommendation.name }}</p>
         <p v-if="recommendation.data[0].co2 < 1000" class="display-6">At just {{ recommendation.data[0].co2 }} ppm it is within the optimal CO2 range of 0 to 1000 ppm</p>
-        <p v-else class="display-6">At {{ recommendation.data[0].co2 }} ppm it is still above the optimal CO2 range of 0 to 1000 ppm</p>
+        <p v-else class="display-6">At {{ recommendation.data[0].co2 }} ppm it is still above the optimal CO2 range of 400 to 1000 ppm</p>
         </pclass="display-6">
       </div>
     </div>
