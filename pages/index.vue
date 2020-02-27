@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="p-lg-4 mx-auto my-4">
+      <div class="p-lg-2 mx-auto my-2">
         <h1 class="display-4 font-weight-normal">Sierra</h1>
         <p class="lead font-weight-normal">Azure Sphere for Citizen Science</p>
         <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank">View Github</a>
@@ -18,23 +18,22 @@
         </pclass="display-6">
       </div>
     </div>
-    <div class="sidenav">
+    <div id="nav" class="size scroll">
       <!-- Twitter Embed Code -->
       <p align="right">
         <a
           class="twitter-timeline"
-          data-width="250"
+          data-width="300"
           data-height="450"
           data-theme="dark"
           href="https://twitter.com/CLSierra2020"
           data-aria-polite="assertive"
         >Tweets by CLSierra2020</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" /> </script>
-      <!-- / Twitter Embed Code -->
       </p>
+      <!-- / Twitter Embed Code -->
     </div>
-
-    <div style="margin-right:25%">
+    <div style="margin-right:320px">
       <b-row class="position-relative m-lg-3 no-gutters">
         <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
       </b-row>
@@ -82,6 +81,45 @@ export default {
   },
   created () {
     setInterval(this.summaryUpdater, Locations.updateInterval)
+  },
+  mounted () {
+    this.$nextTick(function () {
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("nav")
+        const navClasses = navbar.classList
+        if (document.documentElement.scrollTop <= 250) {
+          if (navClasses.contains("fixed") === true) {
+            navClasses.toggle("fixed")
+          }
+          if (navClasses.contains("scroll") === false) {
+            navClasses.toggle("scoll")
+          }
+          if (navClasses.contains("scroll2") === true) {
+            navClasses.toggle("scroll2")
+          }
+        } else if (document.documentElement.scrollTop >= (document.body.scrollHeight - navbar.scrollHeight * 2.4)) {
+          if (navClasses.contains("fixed") === true) {
+            navClasses.toggle("fixed")
+          }
+          if (navClasses.contains("scroll") === true) {
+            navClasses.toggle("scoll")
+          }
+          if (navClasses.contains("scroll2") === false) {
+            navClasses.toggle("scroll2")
+          }
+        } else {
+          if (navClasses.contains("fixed") === false) {
+            navClasses.toggle("fixed")
+          }
+          if (navClasses.contains("scroll") === true) {
+            navClasses.toggle("scoll")
+          }
+          if (navClasses.contains("scroll2") === true) {
+            navClasses.toggle("scroll2")
+          }
+        }
+      })
+    })
   }
 }
 
@@ -89,10 +127,26 @@ export default {
 
 <style>
 /* The sidebar menu */
-.sidenav {
-  top: 420px;
-  width: 25%; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  right: 2%;
+
+.size{
+  width: 25%;
 }
+.scroll {
+
+  right: 2%;
+  top: 600px;
+  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+}
+.fixed {
+
+  right: 2%;
+  top: 345px;
+  position: fixed;
+}
+
+.scroll2 {
+  top: 1000px;
+  position: absolute;
+}
+
 </style>
