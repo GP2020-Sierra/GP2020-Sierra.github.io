@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="p-lg-5 mx-auto my-5">
+      <div class="p-lg-2 mx-auto my-2">
         <h1 class="display-4 font-weight-normal">{{ location.name }}</h1>
       </div>
     </div>
