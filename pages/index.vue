@@ -18,10 +18,27 @@
         </pclass="display-6">
       </div>
     </div>
+    <div class="sidenav">
+      <!-- Twitter Embed Code -->
+      <p align="right">
+        <a
+          class="twitter-timeline"
+          data-width="250"
+          data-height="450"
+          data-theme="dark"
+          href="https://twitter.com/CLSierra2020"
+          data-aria-polite="assertive"
+        >Tweets by CLSierra2020</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" /> </script>
+      <!-- / Twitter Embed Code -->
+      </p>
+    </div>
 
-    <b-row class="position-relative m-lg-3 no-gutters">
-      <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
-    </b-row>
+    <div style="margin-right:25%">
+      <b-row class="position-relative m-lg-3 no-gutters">
+        <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -67,8 +84,15 @@ export default {
     setInterval(this.summaryUpdater, Locations.updateInterval)
   }
 }
+
 </script>
 
 <style>
-
+/* The sidebar menu */
+.sidenav {
+  top: 420px;
+  width: 25%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  right: 2%;
+}
 </style>
