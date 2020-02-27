@@ -5,6 +5,7 @@
         <h1 class="display-4 font-weight-normal">Sierra</h1>
         <p class="lead font-weight-normal">Azure Sphere for Citizen Science</p>
         <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank">View Github</a>
+        <a href="https://twitter.com/CLSierra2020?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @CLSierra2020</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
       </div>
     </div>
 
@@ -18,13 +19,13 @@
         </pclass="display-6">
       </div>
     </div>
-    <div id="nav" class="size scroll">
+    <div id="nav" class="scroll">
       <!-- Twitter Embed Code -->
       <p align="right">
         <a
           class="twitter-timeline"
           data-width="300"
-          data-height="450"
+          data-height="850"
           data-theme="dark"
           href="https://twitter.com/CLSierra2020"
           data-aria-polite="assertive"
@@ -81,45 +82,6 @@ export default {
   },
   created () {
     setInterval(this.summaryUpdater, Locations.updateInterval)
-  },
-  mounted () {
-    this.$nextTick(function () {
-      window.addEventListener("scroll", function () {
-        const navbar = document.getElementById("nav")
-        const navClasses = navbar.classList
-        if (document.documentElement.scrollTop <= 250) {
-          if (navClasses.contains("fixed") === true) {
-            navClasses.toggle("fixed")
-          }
-          if (navClasses.contains("scroll") === false) {
-            navClasses.toggle("scoll")
-          }
-          if (navClasses.contains("scroll2") === true) {
-            navClasses.toggle("scroll2")
-          }
-        } else if (document.documentElement.scrollTop >= (document.body.scrollHeight - navbar.scrollHeight * 2.4)) {
-          if (navClasses.contains("fixed") === true) {
-            navClasses.toggle("fixed")
-          }
-          if (navClasses.contains("scroll") === true) {
-            navClasses.toggle("scoll")
-          }
-          if (navClasses.contains("scroll2") === false) {
-            navClasses.toggle("scroll2")
-          }
-        } else {
-          if (navClasses.contains("fixed") === false) {
-            navClasses.toggle("fixed")
-          }
-          if (navClasses.contains("scroll") === true) {
-            navClasses.toggle("scoll")
-          }
-          if (navClasses.contains("scroll2") === true) {
-            navClasses.toggle("scroll2")
-          }
-        }
-      })
-    })
   }
 }
 
@@ -127,25 +89,10 @@ export default {
 
 <style>
 /* The sidebar menu */
-
-.size{
-  width: 25%;
-}
 .scroll {
-
-  right: 2%;
-  top: 600px;
-  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
-}
-.fixed {
-
-  right: 2%;
-  top: 345px;
-  position: fixed;
-}
-
-.scroll2 {
-  top: 1000px;
+  width: 25%;
+  right: 1%;
+  top: 400;
   position: absolute;
 }
 
