@@ -4,7 +4,7 @@
     <apexchart v-if="filterObject.co2" :options="co2" :series="co2Data" height="250" type="line" />
     <apexchart v-if="filterObject.humidity" :options="humidity" :series="humidityData" height="250" type="line" />
     <apexchart v-if="filterObject.pressure" :options="pressure" :series="pressureData" height="250" type="line" />
-    <apexchart v-if="filterObject.devices" :options="devices" :series="devicesData" height="250" type="line" />
+    <apexchart v-if="filterObject.devices" :options="devices" :series="devicesData" height="250" type="area" />
   </div>
 </template>
 
@@ -187,9 +187,16 @@ export default {
         chart: {
           id: "line-4",
           group: "social",
-          type: "line",
+          type: "area",
           animations: { enabled: true },
           zoom: { autoScaleYaxis: false }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: "straight",
+          width: 10
         },
         annotations: { yaxis: this.annotationY("Devices") },
         xaxis: {
@@ -203,6 +210,11 @@ export default {
             formatter: val => val.toFixed(0),
             minWidth: 40
           }
+        },
+        fill: {
+          colors: "#008FFB",
+          opacity: 1.1,
+          type: "solid"
         },
         tooltip: {
           x: { format: "dd MMM HH:mm" },
