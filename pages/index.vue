@@ -1,10 +1,11 @@
 <template>
   <div>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="p-lg-4 mx-auto my-4">
+      <div class="p-lg-2 mx-auto my-2">
         <h1 class="display-4 font-weight-normal">Sierra</h1>
         <p class="lead font-weight-normal">Azure Sphere for Citizen Science</p>
         <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank">View Github</a>
+        <a href="https://twitter.com/CLSierra2020?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @CLSierra2020</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
       </div>
     </div>
 
@@ -18,10 +19,26 @@
         </pclass="display-6">
       </div>
     </div>
-
-    <b-row class="position-relative m-lg-3 no-gutters">
-      <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
-    </b-row>
+    <div id="nav" class="scroll">
+      <!-- Twitter Embed Code -->
+      <p align="right">
+        <a
+          class="twitter-timeline"
+          data-width="300"
+          data-height="850"
+          data-theme="dark"
+          href="https://twitter.com/CLSierra2020"
+          data-aria-polite="assertive"
+        >Tweets by CLSierra2020</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" /> </script>
+      </p>
+      <!-- / Twitter Embed Code -->
+    </div>
+    <div style="margin-right:320px">
+      <b-row class="position-relative m-lg-3 no-gutters">
+        <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -67,8 +84,16 @@ export default {
     setInterval(this.summaryUpdater, Locations.updateInterval)
   }
 }
+
 </script>
 
 <style>
+/* The sidebar menu */
+.scroll {
+  width: 25%;
+  right: 1%;
+  top: 400;
+  position: absolute;
+}
 
 </style>
