@@ -24,8 +24,7 @@
       <p align="right">
         <a
           class="twitter-timeline"
-          data-width="25%"
-          data-height="120%"
+          data-height="800"
           data-theme="dark"
           href="https://twitter.com/CLSierra2020"
           data-aria-polite="assertive"
@@ -34,7 +33,7 @@
       </p>
       <!-- / Twitter Embed Code -->
     </div>
-    <div style="margin-right:27%">
+    <div style="margin-right:25%">
       <b-row class="position-relative m-lg-3 no-gutters">
         <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
       </b-row>
@@ -90,10 +89,11 @@ export default {
 <style>
 /* The sidebar menu */
 .scroll {
-  width: 100%;
-  right: 1%;
-  top: 85%;
   position: absolute;
+  right:1%;
+  top:85%;
+  height: auto;
+  width: 23%;
 }
 
 </style>
