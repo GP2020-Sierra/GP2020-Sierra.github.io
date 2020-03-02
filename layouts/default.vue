@@ -54,7 +54,7 @@
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
             <li>
-              <a ref="https://github.com/GP2020-Sierra/" class="text-muted" target="_blank">Github Organisation</a>
+              <a href="https://github.com/GP2020-Sierra/" class="text-muted" target="_blank">Github Organisation</a>
             </li>
             <li>
               <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
