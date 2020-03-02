@@ -2,6 +2,10 @@
 
 > GP2020-Sierra.github.io
 
+For information about our project, see our [README repo](https://github.com/GP2020-Sierra/README)
+
+[MIT License](/LICENSE)
+
 ## Build Setup
 
 ``` bash
