@@ -60,7 +60,7 @@
               <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
             </li>
             <li>
-              <a class="text-muted" href="https://github.com/GP2020-Sierra/README/blob/master/README.md" target="_blank">Reproducing our project</a>
+              <a class="text-muted" href="https://gp2020-sierra.github.io/README/" target="_blank">Reproducing our project</a>
             </li>
             <li>
               <a class="text-muted" href="/LICENSE.txt">MIT License</a>
