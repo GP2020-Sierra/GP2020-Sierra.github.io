@@ -20,6 +20,9 @@
       <!-- <p>More specifically, the relationship between performance (speed) and CO2 can be seen below:</p>
       <b-img class="center graph-picture" fluid src="~/assets/images/performance.png" />
       <b-img class="center graph-picture" fluid src="~/assets/images/accuracy.png" /> -->
+      <p>The relationship between performance and CO2 can be seen below (according to <a href="https://ehp.niehs.nih.gov/doi/10.1289/ehp.1510037">this study</a>):</p>
+      <b-img center class="w-50 graph-picture" fluid src="~/assets/images/case.png" />
+      <p />
     </b-container>
     <b-container>
       <h4 class="text-center">What we set out to achieve</h4>
