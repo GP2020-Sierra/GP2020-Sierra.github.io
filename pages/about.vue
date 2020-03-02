@@ -14,7 +14,7 @@
       </p>
       <p>
         According to
-        <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this study</a> on primary, middle and secondary students from 1996 to 2015, reducing CO2 concentration from 2,000 ppm (parts per million) to 1,000 ppm
+        <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this study</a> on primary, middle and secondary students from 1996 to 2015, reducing CO2 concentration from 2,000 ppm to 1,000 ppm
         would mean that students complete psychological tests 12% faster and make 3% fewer mistakes on average.
       </p>
       <!-- <p>More specifically, the relationship between performance (speed) and CO2 can be seen below:</p>
