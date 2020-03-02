@@ -54,18 +54,13 @@
           <h5>Links</h5>
           <ul class="list-unstyled text-small text-muted">
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/"
-                target="_blank"
-              >Github Organisation</a>
+              <a ref="https://github.com/GP2020-Sierra/" class="text-muted" target="_blank">Github Organisation</a>
             </li>
             <li>
-              <a
-                class="text-muted"
-                href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source"
-                target="_blank"
-              >Website source</a>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/GP2020-Sierra.github.io/tree/source" target="_blank">Website source</a>
+            </li>
+            <li>
+              <a class="text-muted" href="https://github.com/GP2020-Sierra/README/blob/master/README.md" target="_blank">Reproducing our project</a>
             </li>
             <li>
               <a class="text-muted" href="/LICENSE.txt">MIT License</a>
