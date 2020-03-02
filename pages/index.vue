@@ -36,7 +36,7 @@
             href="https://twitter.com/CLSierra2020"
             data-aria-polite="assertive"
           >Tweets by CLSierra2020</a>
-        </b-container>>
+        </b-container>
       </b-col>
     </b-row>
 
