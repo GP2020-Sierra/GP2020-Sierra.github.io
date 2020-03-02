@@ -47,7 +47,7 @@
     </b-container>
     <b-container>
       <h4 class="text-center">Instructions for reproducing our project</h4>
-      <p> To reproduce this project, follow the instructions in our <a href="https://github.com/GP2020-Sierra/README/blob/master/README.md">README repo</a></p>
+      <p> To reproduce this project, follow the instructions in our <a href="https://gp2020-sierra.github.io/README/">README repo</a></p>
     </b-container>
 
     <!-- TODO: same for resource below:
