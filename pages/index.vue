@@ -19,25 +19,28 @@
         </pclass="display-6">
       </div>
     </div>
-    <div id="nav" class="scroll">
-      <!-- Twitter Embed Code -->
-      <p align="right">
-        <a
-          class="twitter-timeline"
-          data-height="800"
-          data-theme="dark"
-          href="https://twitter.com/CLSierra2020"
-          data-aria-polite="assertive"
-        >Tweets by CLSierra2020</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" /> </script>
-      </p>
-      <!-- / Twitter Embed Code -->
-    </div>
-    <div style="margin-right:25%">
-      <b-row class="position-relative m-lg-3 no-gutters">
-        <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
-      </b-row>
-    </div>
+
+    <b-row>
+      <b-col lg="9">
+        <b-row class="position-relative m-lg-3 no-gutters">
+          <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
+        </b-row>
+      </b-col>
+
+      <b-col lg="3">
+        <b-container fluid="sm">
+          <a
+            class="twitter-timeline"
+            data-height="800"
+            data-theme="dark"
+            href="https://twitter.com/CLSierra2020"
+            data-aria-polite="assertive"
+          >Tweets by CLSierra2020</a>
+        </b-container>>
+      </b-col>
+    </b-row>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" crossorigin="anonymous" />
   </div>
 </template>
 
@@ -95,5 +98,4 @@ export default {
   height: auto;
   width: 23%;
 }
-
 </style>
