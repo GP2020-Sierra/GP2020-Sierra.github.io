@@ -4,8 +4,8 @@
       <div class="p-lg-2 mx-auto my-2">
         <h1 class="display-4 font-weight-normal">Sierra</h1>
         <p class="lead font-weight-normal">Azure Sphere for Citizen Science</p>
-        <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank">View Github</a>
-        <a href="https://twitter.com/CLSierra2020?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @CLSierra2020</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+        <a class="btn btn-outline-secondary" href="https://github.com/GP2020-Sierra/" target="_blank"><i class="fab fa-github" /> Github</a>
+        <a class="btn btn-outline-secondary" href="https://twitter.com/CLSierra2020" target="_blank"><i class="fab fa-twitter" /> Twitter</a>
       </div>
     </div>
 
@@ -41,6 +41,8 @@
     </b-row>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/brands.css" integrity="sha384-+2AYGyI2bR10NExh4Lu/3NQmpNxck8EcRE7aATrMi9QQ9OAKQAQw1bcrlWkp0tdM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/fontawesome.css" integrity="sha384-C1VkjHy10mh0wo7rz2xEDdqrfn5C+AJpaCpUyScFHzKb0mnAU3I//2RrdAE+LfQ6" crossorigin="anonymous">
   </div>
 </template>
 
