@@ -20,15 +20,15 @@
       </div>
     </div>
 
-    <b-row>
-      <b-col lg="9">
+    <b-row class="position-relative no-gutters">
+      <b-col xl="9">
         <b-row class="position-relative m-lg-3 no-gutters">
           <LocationSmall v-for="location in Object.values(locations)" :key="location.id" v-bind:location="location" />
         </b-row>
       </b-col>
 
-      <b-col lg="3">
-        <b-container fluid="sm">
+      <b-col xl="3">
+        <b-container style="max-width: 500px" fluid="sm">
           <a
             class="twitter-timeline"
             data-height="800"
@@ -36,7 +36,7 @@
             href="https://twitter.com/CLSierra2020"
             data-aria-polite="assertive"
           >Tweets by CLSierra2020</a>
-        </b-container>>
+        </b-container>
       </b-col>
     </b-row>
 
@@ -92,12 +92,4 @@ export default {
 </script>
 
 <style>
-/* The sidebar menu */
-.scroll {
-  position: absolute;
-  right:1%;
-  top:85%;
-  height: auto;
-  width: 23%;
-}
 </style>

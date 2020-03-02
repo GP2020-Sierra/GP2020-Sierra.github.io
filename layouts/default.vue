@@ -2,7 +2,7 @@
 <template>
   <div>
     <b-navbar toggleable="sm" type="dark" class="site-header sticky-top">
-      <b-navbar-brand href="#">Sierra</b-navbar-brand>
+      <b-navbar-brand href="/">Sierra</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
 
