@@ -7,14 +7,14 @@
     </div>
 
     <b-container>
-      <h4 class="text-center">The science behind it all</h4>
+      <h4 class="text-center">Why we wanted to do this project</h4>
       <p>
         Many studies have shown that the level of carbon dioxide in the room is directly related to a students alertness and ability to concentrate.
         Even though CO2 is a harmless gas, it can contribute directly to increased tiredness and a loss of concentration.
       </p>
       <p>
         According to
-        <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this study</a> on students in 16 studies from 1996 to 2015, reducing CO2 concentration from 2,000 ppm (parts per million) to 1,000 ppm
+        <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this study</a> on primary, middle and secondary students from 1996 to 2015, reducing CO2 concentration from 2,000 ppm to 1,000 ppm
         would mean that students complete psychological tests 12% faster and make 3% fewer mistakes on average.
       </p>
       <!-- <p>More specifically, the relationship between performance (speed) and CO2 can be seen below:</p>
@@ -24,14 +24,22 @@
     <b-container>
       <h4 class="text-center">What we set out to achieve</h4>
       <p>
-        We deployed 6 sensors in common study spaces across Cambridge to try and gauge how well suited for work those enviroments are.
-        To do this we detected CO2 levels as well as tempreture, air pressure, humidity and device count to estimate how many people are using that space.
+        As a citizen science project, our goal was to monitor the conditions of popular study locations in Cambridge to see how well suited they are for studying.
+        This was in that hope that students could see the data at these locations and choose to work in places that they believe have the best conditions to be effective.
+        To help them do this we wanted to display our readings on this website as well as have a twitter bot they can follow for updates.
       </p>
     </b-container>
     <b-container>
-      <h4 class="text-center">What we found</h4>
+      <h4 class="text-center">What we did</h4>
       <p>
-        This will be filled in once we have completed our survey and looked at our data.
+        To do this we deployed 5 azure IOT devices, each measuring the temperature, CO2, humidity, pressure and the number of devices connected to internet at these locations.
+        Our boards were located in a supervision room at Churchill as well as various study/reading rooms at Churchill, Newnham and Emmanuel colleges.
+        This allowed us to see the enviromental conditions throughout the day as well as estimate how busy these places were based on device count.
+      </p>
+      <p>
+        We also released a google form to our cohort asking for their opinions on the ideal conditions of a study space and whether they would find this data useful.
+        We recieved a total of 20 responses.
+        60% of the students who responded said they found it "very hard" to study in poorly ventilated rooms, with 55% of students saying they would choose to study in a different location than usual based on the knowing the conditions were better.
       </p>
     </b-container>
     <b-container>
