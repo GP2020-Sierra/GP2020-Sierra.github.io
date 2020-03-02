@@ -17,9 +17,6 @@
         <a href="https://www.aivc.org/sites/default/files/155_0.pdf">this study</a> on primary, middle and secondary students from 1996 to 2015, reducing CO2 concentration from 2,000 ppm to 1,000 ppm
         would mean that students complete psychological tests 12% faster and make 3% fewer mistakes on average.
       </p>
-      <!-- <p>More specifically, the relationship between performance (speed) and CO2 can be seen below:</p>
-      <b-img class="center graph-picture" fluid src="~/assets/images/performance.png" />
-      <b-img class="center graph-picture" fluid src="~/assets/images/accuracy.png" /> -->
       <p>The relationship between performance and CO2 can be seen below (according to <a href="https://ehp.niehs.nih.gov/doi/10.1289/ehp.1510037">this study</a>):</p>
       <b-img center class="w-50 graph-picture" fluid src="~/assets/images/case.png" />
       <p />
@@ -49,10 +46,6 @@
       <h4 class="text-center">Instructions for reproducing our project</h4>
       <p> To reproduce this project, follow the instructions in our <a href="https://gp2020-sierra.github.io/README/">README repo</a></p>
     </b-container>
-
-    <!-- TODO: same for resource below:
-      <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>
-      <p>https://ehp.niehs.nih.gov/doi/10.1289/ehp.1510037</p>-->
   </div>
 </template>
 
