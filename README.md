@@ -2,7 +2,7 @@
 
 > GP2020-Sierra.github.io
 
-For information about our project, see our [README repo](https://github.com/GP2020-Sierra/README)
+For information about our project, see our [README](https://gp2020-sierra.github.io/README/)
 
 [MIT License](/LICENSE)
 
