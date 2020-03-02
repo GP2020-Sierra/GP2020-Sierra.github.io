@@ -34,6 +34,10 @@
         This will be filled in once we have completed our survey and looked at our data.
       </p>
     </b-container>
+    <b-container>
+      <h4 class="text-center">Instructions for reproducing our project</h4>
+      <p> To reproduce this project, follow the instructions in our <a href="https://github.com/GP2020-Sierra/README/blob/master/README.md">README repo</a></p>
+    </b-container>
 
       <!-- TODO: same for resource below:
       <p>https://www.researchgate.net/publication/221860768_Effect_of_classroom_air_quality_on_students'_concentration_Results_of_a_cluster-randomized_cross-over_experimental_study</p>
