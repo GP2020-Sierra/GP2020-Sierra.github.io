@@ -7,7 +7,7 @@
     </div>
 
     <b-container>
-      <p>My ID #: {{ location.id }}</p>
+      <p>On twitter: <a v-bind:href="'https://twitter.com/hashtag/' + twitterHashtag">#{{ twitterHashtag }}</a></p>
       <b-row class="text-center">
         <b-col>
           <b-form-group label="Graphs to display:">
@@ -56,6 +56,9 @@ export default {
         pressure: this.selected.includes("pressure"),
         devices: this.selected.includes("devices")
       }
+    },
+    twitterHashtag () {
+      return "sierra_" + this.location.id.replace(/-/g, "_")
     }
   },
   async asyncData (context) {
