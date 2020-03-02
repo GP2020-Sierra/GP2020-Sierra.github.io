@@ -16,7 +16,6 @@
         <p v-else class="display-6">The best place to study right now is {{ recommendation.name }}</p>
         <p v-if="recommendation.data[0].co2 < 1000" class="display-6">At just {{ recommendation.data[0].co2 }} ppm it has the smallest CO2 concentration.</p>
         <p v-else class="display-6">At {{ recommendation.data[0].co2 }} ppm it is still above the optimal CO2 range of 400 to 1000 ppm</p>
-        </pclass="display-6">
       </div>
     </div>
 
