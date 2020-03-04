@@ -44,7 +44,8 @@
     </b-container>
     <b-container>
       <h4 class="text-center">Instructions for reproducing our project</h4>
-      <p> To reproduce this project, follow the instructions in our <a href="https://gp2020-sierra.github.io/README/">README repo</a></p>
+      <p> To reproduce this project, follow the instructions in our <a href="https://gp2020-sierra.github.io/README/">README repo</a>. Below is a picture of a deployed data collecting Azure Sphere device.</p>
+      <b-img center class="w-50 graph-picture" fluid src="~/assets/images/device.jpg" />
     </b-container>
   </div>
 </template>
