@@ -1,17 +1,15 @@
-import axios from "axios"
-const api = "https://gp2020-sierra.azurewebsites.net/api/"
-
 export default {
+  // eslint-disable-next-line require-await
   async _locationsEndpoint () {
-    const { data } = await axios.get(api + "locations")
-    return data
+    return require("./api/locations.json")
   },
+  // eslint-disable-next-line require-await
   async _summaryEndpoint () {
-    const { data } = await axios.get(api + "summary")
-    return data
+    return require("./api/summary.json")
   },
+  // eslint-disable-next-line require-await
   async _dataEndpoint (id) {
-    const { data } = await axios.get(api + "data/" + id)
+    const data = require("./api/data/" + id + ".json")
     data.forEach((x) => {
       x.timestamp = Date.parse(x.timestamp) / 1000
     })

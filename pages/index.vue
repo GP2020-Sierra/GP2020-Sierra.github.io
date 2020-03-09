@@ -48,7 +48,7 @@
 <script>
 import LocationSmall from "~/components/LocationSmall.vue"
 import Locations from "~/src/locations.js"
-import moment from "moment"
+// import moment from "moment"
 
 export default {
   components: {
@@ -56,11 +56,12 @@ export default {
   },
   computed: {
     upToDateLocations () {
-      const now = moment()
+      // const now = moment()
       const locations = Object.values(this.locations)
-      return locations.filter(location =>
-        moment(location.data[0].timestamp).isAfter(now.subtract(10, "minutes")) // check if time is within 10 mins
-      )
+      return locations
+      // .filter(location =>
+      //   moment(location.data[0].timestamp).isAfter(now.subtract(10, "minutes")) // check if time is within 10 mins
+      // )
     },
     recommendation () {
       const locations = this.upToDateLocations
