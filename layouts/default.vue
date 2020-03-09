@@ -24,6 +24,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto" />
+        <b-nav-text>Snapshot - NOT LIVE</b-nav-text>
       </b-collapse>
     </b-navbar>
 
